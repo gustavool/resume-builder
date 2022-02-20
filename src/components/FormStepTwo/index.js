@@ -2,29 +2,43 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import useFetch from '../../hooks/useFetch';
 import { ChangeStepTwo } from '../../store/actions/stepTwo.action';
 import BackButton from '../BackButton';
 import Button from '../Button';
+import InputNumber from '../InputNumber';
 import InputSelect from '../InputSelect';
 import InputText from '../InputText';
 import * as S from './styles';
 
 export default function FormStepTwo() {
-  // eslint-disable-next-line no-unused-vars
-  const [countriesAndStates, setCountriesAndStates] = useState([]);
   const [states, setStates] = useState([]);
-  const [cities, setCities] = useState([]);
 
   const dispatch = useDispatch();
 
   const stepTwo = useSelector((state) => state.StepTwoReducer);
 
-  const {
-    isLoading: countriesIsLoading,
-    value: countriesList,
-    error: countriesError,
-  } = useFetch('https://countriesnow.space/api/v0.1/countries/states');
+  const [countriesAndStates, setCountriesAndStates] = useState(null);
+  const [errorCountriesAndStates, setErrorCountriesAndStates] = useState(null);
+  const [isLoadingCountriesAndStates, setIsLoadingCountriesAndStates] =
+    useState(true);
+
+  useEffect(() => {
+    fetch('https://countriesnow.space/api/v0.1/countries/states')
+      .then(async (response) => {
+        const json = await response.json();
+        setCountriesAndStates(json.data);
+      })
+      .catch((error) => {
+        setErrorCountriesAndStates(error);
+      })
+      .finally(() => {
+        setIsLoadingCountriesAndStates(false);
+      });
+  }, []);
+
+  const [cities, setCities] = useState(null);
+  const [errorCities, setErrorCities] = useState(null);
+  const [isLoadingCities, setIsLoadingCities] = useState(true);
 
   const requestOptions = {
     method: 'POST',
@@ -35,54 +49,77 @@ export default function FormStepTwo() {
     }),
   };
 
-  const {
-    isLoading: citiesIsLoading,
-    value: citiesList,
-    error: citiesError,
-  } = useFetch(
-    'https://countriesnow.space/api/v0.1/countries/state/cities',
-    requestOptions
-  );
-
-  function handleInputChange(e) {
-    dispatch(ChangeStepTwo({ ...stepTwo, [e.target.name]: e.target.value }));
-  }
-
   useEffect(() => {
-    setCountriesAndStates(countriesList?.data);
-  }, [countriesList]);
+    if (stepTwo.state !== '') {
+      fetch(
+        'https://countriesnow.space/api/v0.1/countries/state/cities',
+        requestOptions
+      )
+        .then(async (response) => {
+          const json = await response.json();
+          console.log('data POST', json.data);
+          setCities(json.data);
+        })
+        .catch((error) => {
+          setErrorCities(error);
+        })
+        .finally(() => {
+          setIsLoadingCities(false);
+        });
+    }
+  }, [stepTwo.state]);
 
   useEffect(() => {
     const countrySelected = countriesAndStates?.find((country) => {
       return country.name === stepTwo.country;
     });
 
+    console.log('countrySelected', countrySelected);
+
     setStates(countrySelected?.states);
+    setCities(null); //clear cities
   }, [stepTwo.country]);
 
-  useEffect(() => {
-    console.log('entrou effect');
-    setCities(citiesList?.data);
-  }, [stepTwo.state]);
-
-  console.log('redux', stepTwo);
+  function handleInputChange(e) {
+    if (stepTwo[e.target.name] !== e.target.value) {
+      dispatch(ChangeStepTwo({ ...stepTwo, [e.target.name]: e.target.value }));
+    }
+  }
 
   return (
     <S.Form>
       <BackButton href='http://localhost:3000/StepOne' />
 
       <div className='doubleFields'>
-        <InputText placeholder='0000'>Number</InputText>
+        <InputNumber
+          name='number'
+          placeholder='000000'
+          maxLength='6'
+          defaultValue={stepTwo.number}
+          onBlur={handleInputChange}
+        >
+          Number
+        </InputNumber>
+
         <InputSelect
           name='country'
           label='Country'
           placeholder='Select a country'
           optionsList={countriesAndStates}
-          handleInputChange={handleInputChange}
+          defaultValue={stepTwo.country}
+          onBlur={handleInputChange}
         />
       </div>
 
-      <InputText placeholder='av...'>Address</InputText>
+      <InputText
+        className='oneField'
+        name='address'
+        placeholder='av...'
+        maxLength='80'
+        onBlur={handleInputChange}
+      >
+        Address
+      </InputText>
 
       <div className='doubleFields'>
         <InputSelect
@@ -92,8 +129,9 @@ export default function FormStepTwo() {
             states?.length === 0 ? 'States not found' : 'Select a state'
           }
           optionsList={states}
-          handleInputChange={handleInputChange}
           disabled={states?.length === 0}
+          defaultValue={stepTwo.state}
+          onBlur={handleInputChange}
         />
 
         <InputSelect
@@ -103,8 +141,9 @@ export default function FormStepTwo() {
             cities?.length === 0 ? 'Cities not found' : 'Select a city'
           }
           optionsList={cities}
-          handleInputChange={handleInputChange}
-          // disabled={states?.length === 0}
+          disabled={cities?.length === 0}
+          defaultValue={stepTwo.city}
+          onBlur={handleInputChange}
         />
       </div>
 

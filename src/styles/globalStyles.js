@@ -11,6 +11,9 @@ export default createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.background};
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   button {

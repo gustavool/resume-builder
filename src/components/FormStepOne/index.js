@@ -1,8 +1,10 @@
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ChangeStepOne } from '../../store/actions/StepOne.action';
 import Button from '../Button';
+import InputNumber from '../InputNumber';
+import InputText from '../InputText';
 import * as S from './styles';
 
 export default function FormStepOne() {
@@ -10,72 +12,62 @@ export default function FormStepOne() {
 
   const stepOne = useSelector((state) => state.StepOneReducer);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   formState: { errors },
+  // } = useForm();
 
   function handleInputChange(e) {
-    dispatch(ChangeStepOne({ ...stepOne, [e.target.name]: e.target.value }));
+    if (stepOne[e.target.name] !== e.target.value) {
+      dispatch(ChangeStepOne({ ...stepOne, [e.target.name]: e.target.value }));
+    }
   }
-  console.log(stepOne);
-
-  const onSubmit = (data) => console.log(data);
 
   return (
-    <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <label>
-        First Name
-        <input
+    <S.Form>
+      <div className='doubleFields'>
+        <InputText
           name='firstName'
-          {...register('firstName', {
-            onChange: handleInputChange,
-            required: true,
-          })}
-        />
-      </label>
-
-      {errors.firstName && <span>This firstName is required</span>}
-
-      <label>
-        Last Name
-        <input
+          placeholder='firstName'
+          maxLength='50'
+          defaultValue={stepOne.firstName}
+          onBlur={handleInputChange}
+        >
+          First Name
+        </InputText>
+        {/* {errors.firstName && <span>This firstName is required</span>} */}
+        <InputText
           name='lastName'
-          {...register('lastName', {
-            onChange: handleInputChange,
-            required: true,
-          })}
-        />
-      </label>
+          placeholder='lastName'
+          maxLength='50'
+          defaultValue={stepOne.lastName}
+          onBlur={handleInputChange}
+        >
+          Last Name
+        </InputText>
+      </div>
 
-      {errors.lastName && <span>This lastName is required</span>}
-
-      <label>
+      <InputNumber
+        className='oneField'
+        name='age'
+        placeholder='age'
+        maxLength='3'
+        defaultValue={stepOne.age}
+        onBlur={handleInputChange}
+      >
         Age
-        <input
-          name='age'
-          {...register('age', {
-            onChange: handleInputChange,
-            required: true,
-          })}
-        />
-      </label>
+      </InputNumber>
 
-      {errors.age && <span>This age is required</span>}
-
-      <label>
+      <InputText
+        className='oneField'
+        name='email'
+        placeholder='email'
+        maxLength='50'
+        defaultValue={stepOne.email}
+        onBlur={handleInputChange}
+      >
         Email
-        <input
-          name='email'
-          {...register('email', {
-            onChange: handleInputChange,
-            required: true,
-          })}
-        />
-      </label>
-
-      {errors.email && <span>This email is required</span>}
+      </InputText>
 
       <Button href='http://localhost:3000/StepTwo'>Next</Button>
     </S.Form>

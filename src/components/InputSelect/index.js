@@ -9,6 +9,7 @@ export default function InputSelect({
   optionsList,
   handleInputChange,
   disabled,
+  ...rest
 }) {
   return (
     <S.Container>
@@ -16,10 +17,12 @@ export default function InputSelect({
       <select
         name={name}
         id={name}
-        onChange={handleInputChange}
+        onBlur={handleInputChange}
         disabled={disabled}
+        defaultValue={placeholder}
+        {...rest}
       >
-        <option defaultValue='' disabled selected>
+        <option value={placeholder} disabled>
           {placeholder}
         </option>
 

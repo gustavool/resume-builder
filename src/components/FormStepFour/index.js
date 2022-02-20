@@ -1,21 +1,77 @@
+import { useDispatch, useSelector } from 'react-redux';
+
+import { ChangeStepFour } from '../../store/actions/stepFour.action';
 import BackButton from '../BackButton';
 import Button from '../Button';
+import InputDate from '../InputDate';
 import InputText from '../InputText';
 import * as S from './styles';
 
 export default function FormStepFour() {
+  const dispatch = useDispatch();
+
+  const stepFour = useSelector((state) => state.StepFourReducer);
+
+  function handleInputChange(e) {
+    if (stepFour[e.target.name] !== e.target.value) {
+      dispatch(
+        ChangeStepFour({ ...stepFour, [e.target.name]: e.target.value })
+      );
+    }
+  }
+
   return (
     <S.Form>
       <BackButton href='http://localhost:3000/StepThree' />
-      <InputText placeholder='course name'>Course name</InputText>
 
-      <InputText placeholder='start sate'>Course Start Date</InputText>
+      <div className='doubleFields'>
+        <InputText
+          name='name'
+          placeholder='course name'
+          maxLength='50'
+          defaultValue={stepFour.name}
+          onBlur={handleInputChange}
+        >
+          Course name
+        </InputText>
+        <InputText
+          name='collegeSchool'
+          placeholder='college/school'
+          maxLength='50'
+          defaultValue={stepFour.collegeSchool}
+          onBlur={handleInputChange}
+        >
+          College/School
+        </InputText>
+      </div>
 
-      <InputText placeholder='course end date'>Course End Date</InputText>
+      <div className='doubleFields'>
+        <InputDate
+          name='startDate'
+          onBlur={handleInputChange}
+          defaultValue={stepFour.startDate}
+        >
+          Start Date
+        </InputDate>
+        <InputDate
+          name='endDate'
+          defaultValue={stepFour.endDate}
+          onBlur={handleInputChange}
+        >
+          End Date
+        </InputDate>{' '}
+      </div>
 
-      <InputText placeholder='college/school'>College/School</InputText>
-
-      <InputText placeholder='course activities'>Course Activities</InputText>
+      <InputText
+        className='oneField'
+        name='activities'
+        placeholder='course activities'
+        maxLength='200'
+        defaultValue={stepFour.activities}
+        onBlur={handleInputChange}
+      >
+        Course Activities
+      </InputText>
 
       <Button href='http://localhost:3000/StepFive'>Next</Button>
     </S.Form>

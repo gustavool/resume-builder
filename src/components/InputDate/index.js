@@ -2,17 +2,16 @@ import PropTypes from 'prop-types';
 
 import * as S from './styles';
 
-export default function InputText({ name, children, maxLength, ...rest }) {
+export default function InputDate({ name, children, ...rest }) {
   return (
     <S.Container>
       {children}
-      <input name={name} type='text' maxLength={maxLength} {...rest} />
+      <input name={name} type='date' {...rest} />
     </S.Container>
   );
 }
 
-InputText.propTypes = {
+InputDate.propTypes = {
   name: PropTypes.string.isRequired,
-  maxLength: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 };
