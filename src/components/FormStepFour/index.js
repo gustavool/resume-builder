@@ -5,6 +5,7 @@ import BackButton from '../BackButton';
 import Button from '../Button';
 import InputDate from '../InputDate';
 import InputText from '../InputText';
+import TitleForm from '../TitleForm';
 import * as S from './styles';
 
 export default function FormStepFour() {
@@ -23,6 +24,8 @@ export default function FormStepFour() {
   return (
     <S.Form>
       <BackButton href='http://localhost:3000/StepThree' />
+
+      <TitleForm>Graduations</TitleForm>
 
       <div className='doubleFields'>
         <InputText

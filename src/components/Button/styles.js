@@ -6,10 +6,8 @@ export const Container = styled.button`
   height: 48px;
   border: none;
   border-radius: 4px;
-  padding: 0 16px;
   font-size: 16px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
-  margin: 8px 0;
 
   color: ${({ theme }) => theme.background};
   font-weight: bold;

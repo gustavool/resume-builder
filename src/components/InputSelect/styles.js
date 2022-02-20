@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   font-weight: bold;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: ${({ theme }) => theme.paragraph};
 
   label {

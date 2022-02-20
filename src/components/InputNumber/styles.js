@@ -6,7 +6,7 @@ export const Container = styled.label`
 
   color: ${({ theme }) => theme.paragraph};
   font-weight: bold;
-  text-transform: uppercase;
+  text-transform: capitalize;
 
   input {
     padding: 0 16px;

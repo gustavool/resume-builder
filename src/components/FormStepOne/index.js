@@ -5,6 +5,7 @@ import { ChangeStepOne } from '../../store/actions/StepOne.action';
 import Button from '../Button';
 import InputNumber from '../InputNumber';
 import InputText from '../InputText';
+import TitleForm from '../TitleForm';
 import * as S from './styles';
 
 export default function FormStepOne() {
@@ -25,6 +26,8 @@ export default function FormStepOne() {
 
   return (
     <S.Form>
+      <TitleForm>Personal Data</TitleForm>
+
       <div className='doubleFields'>
         <InputText
           name='firstName'

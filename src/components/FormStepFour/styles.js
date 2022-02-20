@@ -7,14 +7,18 @@ export const Form = styled.form`
   width: 100%;
   max-width: 500px;
 
+  h3 {
+    margin-bottom: 16px;
+  }
+
   a:first-child {
     align-self: flex-start;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
 
   .doubleFields {
     display: flex;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 
     label:first-child,
     div:first-child {
@@ -33,6 +37,10 @@ export const Form = styled.form`
   }
 
   .oneField {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+  }
+
+  button {
+    margin-top: 8px;
   }
 `;

@@ -8,6 +8,7 @@ import Button from '../Button';
 import InputNumber from '../InputNumber';
 import InputSelect from '../InputSelect';
 import InputText from '../InputText';
+import TitleForm from '../TitleForm';
 import * as S from './styles';
 
 export default function FormStepTwo() {
@@ -89,6 +90,8 @@ export default function FormStepTwo() {
   return (
     <S.Form>
       <BackButton href='http://localhost:3000/StepOne' />
+
+      <TitleForm>Address</TitleForm>
 
       <div className='doubleFields'>
         <InputNumber
