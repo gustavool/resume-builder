@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from 'styled-components';
 
-import { store } from '../store/store';
+import { store, persistor } from '../store/store';
 import GlobalStyles from '../styles/globalStyles';
 import { light } from '../styles/theme';
 
@@ -11,7 +12,9 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={light}>
       <GlobalStyles />
       <Provider store={store}>
-        <Component {...pageProps} />
+        <PersistGate loading={null} persistor={persistor}>
+          <Component {...pageProps} />
+        </PersistGate>
       </Provider>
     </ThemeProvider>
   );

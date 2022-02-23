@@ -4,6 +4,7 @@ const initialState = {
   firstName: '',
   lastName: '',
   age: '',
+  gender: '',
   email: '',
 };
 

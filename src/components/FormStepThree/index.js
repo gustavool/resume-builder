@@ -32,7 +32,7 @@ export default function FormStepThree() {
           name='occupation'
           placeholder='occupation'
           maxLength='50'
-          value={stepThree.occupation}
+          defaultValue={stepThree.occupation}
           onBlur={handleInputChange}
         >
           Occupation
@@ -42,7 +42,7 @@ export default function FormStepThree() {
           name='employer'
           placeholder='employer'
           maxLength='50'
-          value={stepThree.employer}
+          defaultValue={stepThree.employer}
           onBlur={handleInputChange}
         >
           Employer
@@ -52,16 +52,18 @@ export default function FormStepThree() {
       <div className='doubleFields'>
         <InputDate
           name='startDate'
-          value={stepThree.startDate}
-          onBlur={handleInputChange}
+          defaultValue={stepThree.startDate}
+          onChange={handleInputChange}
         >
           Start Date
         </InputDate>
 
         <InputDate
           name='endDate'
-          value={stepThree.endDate}
-          onBlur={handleInputChange}
+          defaultValue={stepThree.endDate}
+          onChange={handleInputChange}
+          min={stepThree.startDate}
+          disabled={stepThree.startDate === ''}
         >
           End Date
         </InputDate>
@@ -72,7 +74,7 @@ export default function FormStepThree() {
         name='activities'
         placeholder='occupation activities'
         maxLength='200'
-        value={stepThree.activities}
+        defaultValue={stepThree.activities}
         onBlur={handleInputChange}
       >
         Activities

@@ -107,7 +107,7 @@ export default function FormStepTwo() {
         <InputSelect
           name='country'
           label='Country'
-          placeholder='Select a country'
+          placeholder='select a country'
           optionsList={countriesAndStates}
           defaultValue={stepTwo.country}
           onBlur={handleInputChange}
@@ -119,6 +119,7 @@ export default function FormStepTwo() {
         name='address'
         placeholder='av...'
         maxLength='80'
+        defaultValue={stepTwo.address}
         onBlur={handleInputChange}
       >
         Address
@@ -129,7 +130,7 @@ export default function FormStepTwo() {
           name='state'
           label='State'
           placeholder={
-            states?.length === 0 ? 'States not found' : 'Select a state'
+            states?.length === 0 ? 'states not found' : 'select a state'
           }
           optionsList={states}
           disabled={states?.length === 0}
@@ -141,7 +142,7 @@ export default function FormStepTwo() {
           name='city'
           label='City'
           placeholder={
-            cities?.length === 0 ? 'Cities not found' : 'Select a city'
+            cities?.length === 0 ? 'cities not found' : 'select a city'
           }
           optionsList={cities}
           disabled={cities?.length === 0}

@@ -19,6 +19,7 @@ export const Container = styled.div`
     height: 48px;
     padding: 0 16px;
     outline-color: ${({ theme }) => theme.color.primary400};
+    background-color: ${({ theme }) => theme.backgroundSecondary};
     color: ${({ theme }) => theme.paragraph};
     border: 2px solid ${({ theme }) => theme.background};
     border-radius: 4px;

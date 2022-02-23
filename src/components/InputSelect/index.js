@@ -11,6 +11,8 @@ export default function InputSelect({
   disabled,
   ...rest
 }) {
+  console.log('placeholder', placeholder);
+
   return (
     <S.Container>
       <label htmlFor={name}>{label}</label>
@@ -19,10 +21,10 @@ export default function InputSelect({
         id={name}
         onBlur={handleInputChange}
         disabled={disabled}
-        defaultValue={placeholder}
+        defaultValue={''}
         {...rest}
       >
-        <option value={placeholder} disabled>
+        <option value={''} disabled>
           {placeholder}
         </option>
 

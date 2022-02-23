@@ -42,7 +42,7 @@ export default function FormStepFive() {
           name='date'
           placeholder='date'
           defaultValue={stepFive.date}
-          onBlur={handleInputChange}
+          onChange={handleInputChange}
         >
           Date
         </InputDate>
@@ -70,7 +70,7 @@ export default function FormStepFive() {
         Description
       </InputText>
 
-      <Button href='#'>Next</Button>
+      <Button href='http://localhost:3000/StepSix'>Next</Button>
     </S.Form>
   );
 }

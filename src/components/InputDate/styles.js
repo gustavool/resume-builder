@@ -9,6 +9,7 @@ export const Container = styled.label`
 
   input {
     color: ${({ theme }) => theme.paragraph};
+    background-color: ${({ theme }) => theme.backgroundSecondary};
     padding: 0 16px;
     border: 2px solid ${({ theme }) => theme.background};
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);

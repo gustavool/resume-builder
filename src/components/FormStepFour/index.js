@@ -51,7 +51,7 @@ export default function FormStepFour() {
       <div className='doubleFields'>
         <InputDate
           name='startDate'
-          onBlur={handleInputChange}
+          onChange={handleInputChange}
           defaultValue={stepFour.startDate}
         >
           Start Date
@@ -59,10 +59,12 @@ export default function FormStepFour() {
         <InputDate
           name='endDate'
           defaultValue={stepFour.endDate}
-          onBlur={handleInputChange}
+          onChange={handleInputChange}
+          min={stepFour.startDate}
+          disabled={stepFour.startDate === ''}
         >
           End Date
-        </InputDate>{' '}
+        </InputDate>
       </div>
 
       <InputText
@@ -73,7 +75,7 @@ export default function FormStepFour() {
         defaultValue={stepFour.activities}
         onBlur={handleInputChange}
       >
-        Course Activities
+        Activities
       </InputText>
 
       <Button href='http://localhost:3000/StepFive'>Next</Button>

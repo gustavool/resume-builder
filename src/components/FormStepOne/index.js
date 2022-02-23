@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ChangeStepOne } from '../../store/actions/StepOne.action';
 import Button from '../Button';
 import InputNumber from '../InputNumber';
+import InputSelect from '../InputSelect';
 import InputText from '../InputText';
 import TitleForm from '../TitleForm';
 import * as S from './styles';
@@ -12,6 +13,7 @@ export default function FormStepOne() {
   const dispatch = useDispatch();
 
   const stepOne = useSelector((state) => state.StepOneReducer);
+  const genders = ['Male', 'Female', 'Other'];
 
   // const {
   //   register,
@@ -31,7 +33,7 @@ export default function FormStepOne() {
       <div className='doubleFields'>
         <InputText
           name='firstName'
-          placeholder='firstName'
+          placeholder='first name'
           maxLength='50'
           defaultValue={stepOne.firstName}
           onBlur={handleInputChange}
@@ -41,7 +43,7 @@ export default function FormStepOne() {
         {/* {errors.firstName && <span>This firstName is required</span>} */}
         <InputText
           name='lastName'
-          placeholder='lastName'
+          placeholder='last name'
           maxLength='50'
           defaultValue={stepOne.lastName}
           onBlur={handleInputChange}
@@ -50,16 +52,26 @@ export default function FormStepOne() {
         </InputText>
       </div>
 
-      <InputNumber
-        className='oneField'
-        name='age'
-        placeholder='age'
-        maxLength='3'
-        defaultValue={stepOne.age}
-        onBlur={handleInputChange}
-      >
-        Age
-      </InputNumber>
+      <div className='doubleFields'>
+        <InputNumber
+          name='age'
+          placeholder='age'
+          maxLength='3'
+          defaultValue={stepOne.age}
+          onBlur={handleInputChange}
+        >
+          Age
+        </InputNumber>
+
+        <InputSelect
+          name='gender'
+          label='Gender'
+          placeholder='select a gender'
+          optionsList={genders}
+          defaultValue={stepOne.gender}
+          onBlur={handleInputChange}
+        />
+      </div>
 
       <InputText
         className='oneField'

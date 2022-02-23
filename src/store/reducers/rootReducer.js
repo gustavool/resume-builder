@@ -6,7 +6,7 @@ import StepOneReducer from './StepOne.reducer';
 import StepThreeReducer from './StepThree.reducer';
 import StepTwoReducer from './StepTwo.reducer';
 
-const rootReducers = combineReducers({
+const rootReducer = combineReducers({
   StepOneReducer,
   StepTwoReducer,
   StepThreeReducer,
@@ -14,4 +14,4 @@ const rootReducers = combineReducers({
   StepFiveReducer,
 });
 
-export default rootReducers;
+export default rootReducer;
