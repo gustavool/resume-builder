@@ -7,19 +7,15 @@ export default function InputSelect({
   label,
   placeholder,
   optionsList,
-  handleInputChange,
   disabled,
   ...rest
 }) {
-  console.log('placeholder', placeholder);
-
   return (
     <S.Container>
       <label htmlFor={name}>{label}</label>
       <select
         name={name}
         id={name}
-        onBlur={handleInputChange}
         disabled={disabled}
         defaultValue={''}
         {...rest}
@@ -55,5 +51,4 @@ InputSelect.propTypes = {
     ),
     PropTypes.arrayOf(PropTypes.string),
   ]),
-  handleInputChange: PropTypes.func,
 };

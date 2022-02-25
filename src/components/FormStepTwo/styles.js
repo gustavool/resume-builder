@@ -7,6 +7,10 @@ export const Form = styled.form`
   width: 100%;
   max-width: 500px;
 
+  .select {
+    border: none;
+  }
+
   h3 {
     margin-bottom: 16px;
   }
