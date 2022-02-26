@@ -1,33 +1,58 @@
+import Select from 'react-select';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  font-weight: bold;
-  text-transform: capitalize;
   color: ${({ theme }) => theme.paragraph};
+  font-weight: bold;
+`;
 
-  label {
-    align-self: flex-start;
+export const ReactSelect = styled(Select)`
+  .react-select__control {
+    border-radius: 4px;
+    border: 2px solid transparent;
+    box-shadow: none;
+    padding: 2px;
+
+    font-weight: 400;
   }
 
-  select {
-    width: 100%;
-    height: 48px;
-    padding: 0 16px;
-    outline-color: ${({ theme }) => theme.color.primary400};
-    background-color: ${({ theme }) => theme.backgroundSecondary};
-    color: ${({ theme }) => theme.paragraph};
-    border: 2px solid ${({ theme }) => theme.background};
-    border-radius: 4px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  /* .react-select__control-:hover {
+    border-color: none;
+  } */
+
+  .react-select__control--is-focused {
+    border: 2px solid ${({ theme }) => theme.color.primary400};
+    box-shadow: ${({ theme }) => theme.color.primary400};
   }
 
-  select:active {
-    outline: ${({ theme }) => theme.color.primary400};
-    border-radius: 4px;
+  .react-select__control:hover {
+    border-color: white;
+  }
+
+  .react-select__control--menu-is-open:hover {
+    border: 2px solid ${({ theme }) => theme.color.primary400};
+    box-shadow: ${({ theme }) => theme.color.primary400};
+  }
+
+  .react-select__indicator-separator {
+    display: none;
+  }
+
+  .react-select__indicator svg {
+    fill: ${({ theme }) => theme.color.primary400};
+  }
+
+  .react-select__option:hover {
+    background-color: ${({ theme }) => theme.color.primary200};
+  }
+
+  .react-select__option--is-selected {
+    background-color: ${({ theme }) => theme.color.primary200};
+  }
+
+  .react-select__value-container,
+  .react-select__option {
+    font-size: 14px;
+    font-weight: 400;
   }
 `;

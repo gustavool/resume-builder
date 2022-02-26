@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+import CitiesReducer from './Cities.reducer';
+import CountriesAndStatesReducer from './CountriesAndStates.reducer';
 import StepFiveReducer from './StepFive.reducer';
 import StepFourReducer from './StepFour.reducer';
 import StepOneReducer from './StepOne.reducer';
@@ -12,6 +14,8 @@ const rootReducer = combineReducers({
   StepThreeReducer,
   StepFourReducer,
   StepFiveReducer,
+  CountriesAndStatesReducer,
+  CitiesReducer,
 });
 
 export default rootReducer;

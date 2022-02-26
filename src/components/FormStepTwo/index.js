@@ -2,28 +2,41 @@
 import { useEffect, useState } from 'react';
 import { useQuery, useMutation } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
-import Select from 'react-select';
 
+import { GetCities } from '../../store/actions/Cities.action';
+import { GetCountriesStates } from '../../store/actions/CountriesAndStates.action';
 import { ChangeStepTwo } from '../../store/actions/stepTwo.action';
 import BackButton from '../BackButton';
 import Button from '../Button';
 import InputNumber from '../InputNumber';
 import InputSelect from '../InputSelect';
 import InputText from '../InputText';
-import SelectInput from '../SelectInput';
 import TitleForm from '../TitleForm';
 import * as S from './styles';
 
 export default function FormStepTwo() {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
-  const [countriesAndStates, setCountriesAndStates] = useState([]);
+  const [countries, setCountries] = useState([]);
+  // const [countriesAndStates, setCountriesAndStates] = useState([]);
 
   const dispatch = useDispatch();
 
   const stepTwo = useSelector((state) => state.StepTwoReducer);
 
-  const { isLoading, error, data } = useQuery(
+  useEffect(() => {
+    dispatch(GetCountriesStates());
+  }, []);
+
+  const state = useSelector((state) => state);
+  useEffect(() => {
+    // if(Array.isArray(CitiesReducer.payload) && CitiesReducer.payload.length > 0) {}
+    dispatch(GetCities('Brazil', 'Acre'));
+  }, []);
+
+  console.log('state', state);
+
+  const { data: countriesWithStates } = useQuery(
     'countriesAndStates',
     async () => {
       const response = await fetch(
@@ -40,17 +53,17 @@ export default function FormStepTwo() {
   );
 
   useEffect(() => {
-    if (data) {
-      const countries = data.data.map((country) => {
+    if (countriesWithStates) {
+      const countriesLabelValue = countriesWithStates?.data?.map((country) => {
         return {
           value: country.iso3,
           label: country.name,
         };
       });
 
-      setCountriesAndStates(countries);
+      setCountries(countriesLabelValue);
     }
-  }, [data]);
+  }, [countriesWithStates]);
 
   const requestOptions = {
     method: 'POST',
@@ -68,31 +81,46 @@ export default function FormStepTwo() {
     );
   });
 
+  useEffect(() => {
+    if (Array.isArray(countriesWithStates?.data)) {
+      const countrySelected = countriesWithStates?.data?.find((country) => {
+        return country.name === stepTwo.country;
+      });
+
+      if (countrySelected?.states?.length > 0) {
+        const statesLabelValue = countrySelected.states.map((state) => {
+          return {
+            value: state.state_code,
+            label: state.name,
+          };
+        });
+
+        setStates(statesLabelValue);
+      }
+    }
+  }, [stepTwo.country]);
+
   async function fetchCities() {
     mutate();
 
-    if (dataMut) {
-      const citiesJson = await dataMut?.json();
+    // vindo datMut antigo
+    const citiesJson = await dataMut?.json();
 
-      setCities(citiesJson.data);
+    if (dataMut) {
+      const citiesLabelValue = await citiesJson?.data?.map((city, index) => {
+        return {
+          value: index.toString(),
+          label: city,
+        };
+      });
+
+      await setCities(citiesLabelValue);
     }
   }
 
   useEffect(() => {
     fetchCities();
   }, [stepTwo.state]);
-
-  useEffect(() => {
-    const countrySelected = countriesAndStates?.find((country) => {
-      return country.name === stepTwo.country;
-    });
-
-    countrySelected?.states.length > 0
-      ? setStates(countrySelected.states)
-      : setStates([]);
-
-    setCities([]); //clear cities
-  }, [stepTwo.country]);
 
   function handleInputChange(e) {
     if (stepTwo[e.target.name] !== e.target.value) {
@@ -106,12 +134,16 @@ export default function FormStepTwo() {
     }
   }
 
-  function getCountryValueSelected() {
-    const countrySelected = countriesAndStates.find(
-      (option) => option.label === stepTwo.country
-    );
+  function handleSelectState(e) {
+    if (stepTwo.state !== e.label) {
+      dispatch(ChangeStepTwo({ ...stepTwo, ['state']: e.label }));
+    }
+  }
 
-    return countrySelected;
+  function handleSelectCity(e) {
+    if (stepTwo.city !== e.label) {
+      dispatch(ChangeStepTwo({ ...stepTwo, ['city']: e.label }));
+    }
   }
 
   return (
@@ -131,22 +163,16 @@ export default function FormStepTwo() {
           Number
         </InputNumber>
 
-        {/* <InputSelect
-          name='country'
-          label='Country'
-          placeholder='select a country'
-          optionsList={countriesAndStates}
-          defaultValue={stepTwo.country}
-          onBlur={handleInputChange}
-        /> */}
+        <InputSelect
+          className='select'
+          placeholder={'select a country'}
+          options={countries}
+          onChange={handleSelectCountry}
+          value={countries?.find((option) => option.label === stepTwo.country)}
+        >
+          Country
+        </InputSelect>
       </div>
-
-      <SelectInput
-        placeholder={'select a country'}
-        options={countriesAndStates}
-        onChange={handleSelectCountry}
-        value={getCountryValueSelected()}
-      />
 
       <InputText
         className='oneField'
@@ -160,29 +186,29 @@ export default function FormStepTwo() {
       </InputText>
 
       <div className='doubleFields'>
-        {/* <InputSelect
-          name='state'
-          label='State'
+        <InputSelect
+          // placeholder={'select a state'}
+          options={states}
+          onChange={handleSelectState}
+          // value={states?.find((option) => option.label === stepTwo.state)}
           placeholder={
             states?.length <= 0 ? 'states not found' : 'select a state'
           }
-          optionsList={states}
-          disabled={states?.length <= 0 || !stepTwo.country}
-          defaultValue={stepTwo.state}
-          onChange={handleInputChange}
-        /> */}
+        >
+          State
+        </InputSelect>
 
-        {/* <InputSelect
-          name='city'
-          label='City'
+        <InputSelect
+          // placeholder={'select a city'}
+          options={cities}
+          onChange={handleSelectCity}
+          value={cities?.find((option) => option.label === stepTwo.city)}
           placeholder={
-            cities?.length === 0 ? 'cities not found' : 'select a city'
+            cities?.length <= 0 ? 'cities not found' : 'select a state'
           }
-          optionsList={cities}
-          disabled={states?.length <= 0 || !stepTwo.country}
-          defaultValue={stepTwo.city}
-          onChange={handleInputChange}
-        /> */}
+        >
+          City
+        </InputSelect>
       </div>
 
       <Button href='http://localhost:3000/StepThree'>Next</Button>

@@ -7,10 +7,6 @@ export const Form = styled.form`
   width: 100%;
   max-width: 500px;
 
-  .select {
-    border: none;
-  }
-
   h3 {
     margin-bottom: 16px;
   }
@@ -20,22 +16,21 @@ export const Form = styled.form`
     margin-bottom: 8px;
   }
 
+  .select {
+    margin-top: 2px;
+    /* height: 25px; */
+    /* height: auto; */
+  }
+
   .doubleFields {
     display: flex;
     margin-bottom: 8px;
 
-    label:first-child,
-    div:first-child {
-      margin-right: 4px;
+    label {
+      width: 50%;
     }
 
-    label:last-child,
-    div:last-child {
-      margin-left: 4px;
-    }
-
-    label,
-    div {
+    .select {
       width: 50%;
     }
   }

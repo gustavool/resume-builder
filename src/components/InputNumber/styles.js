@@ -12,7 +12,6 @@ export const Container = styled.label`
     padding: 0 16px;
     border: 2px solid ${({ theme }) => theme.background};
     background-color: ${({ theme }) => theme.backgroundSecondary};
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
     border-radius: 4px;
     height: 48px;
     outline: none;
