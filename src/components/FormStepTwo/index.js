@@ -46,14 +46,10 @@ export default function FormStepTwo() {
       });
 
       setCountriesOptions(countriesValueLabel);
-      setStatesOptions([]); //clear states options
     }
   }, [countriesAndStates]);
 
   useEffect(() => {
-    // dispatch(changeStepTwo({ ...stepTwo, ['state']: '' })); //clear state global state
-    // dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
-
     if (Array.isArray(countriesAndStates.data)) {
       const countrySelected = countriesAndStates.data.find((country) => {
         return country.name === stepTwo?.country;
@@ -70,22 +66,38 @@ export default function FormStepTwo() {
         setStatesOptions(statesValueLabel);
       } else {
         dispatch(changeStepTwo({ ...stepTwo, ['state']: '' })); //clear state global state
-        // dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
+        dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
 
         setStatesOptions([]);
+        setCitiesOptions([]);
       }
     }
   }, [stepTwo.country]);
 
-  // useEffect(() => {
-  //   if (!cities || cities.data.length === 0) {
-  //     dispatch(getCities(stepTwo.country, stepTwo.state));
-  //   }
-  // });
+  useEffect(() => {
+    if (stepTwo.state !== '') {
+      dispatch(getCities(stepTwo.country, stepTwo.state));
+    }
+  }, [stepTwo.state]);
 
-  // useEffect(() => {
-  //   dispatch(getCities(stepTwo.country, stepTwo.state));
-  // }, [stepTwo.state]);
+  useEffect(() => {
+    console.log('cities', cities.data);
+
+    if (Array.isArray(cities.data) && cities.data.length > 0) {
+      const citiesValueLabel = cities.data.map((city, index) => {
+        return {
+          value: index,
+          label: city,
+        };
+      });
+
+      setCitiesOptions(citiesValueLabel);
+    } else {
+      setCitiesOptions([]);
+    }
+  }, [cities]);
+
+  console.log('citiesOptions', citiesOptions);
 
   // useEffect(() => {
 
@@ -148,7 +160,7 @@ export default function FormStepTwo() {
 
       <StateSelect options={statesOptions} />
 
-      <CitySelect options={statesOptions} />
+      <CitySelect options={citiesOptions} />
 
       <div className='doubleFields'>
         <InputNumber
