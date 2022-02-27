@@ -7,9 +7,11 @@ import { getCountriesStates } from '../../store/actions/countriesAndStatesAction
 import { changeStepTwo } from '../../store/actions/stepTwoActions';
 import BackButton from '../BackButton';
 import Button from '../Button';
+import CitySelect from '../CitySelect';
 import CountrySelect from '../CountrySelect';
 import InputNumber from '../InputNumber';
 import InputText from '../InputText';
+import StateSelect from '../StateSelect';
 import TitleForm from '../TitleForm';
 import * as S from './styles';
 
@@ -144,7 +146,9 @@ export default function FormStepTwo() {
 
       <CountrySelect options={countriesOptions} />
 
-      {/* <StateSelect options={statesOptions} /> */}
+      <StateSelect options={statesOptions} />
+
+      <CitySelect options={statesOptions} />
 
       <div className='doubleFields'>
         <InputNumber
