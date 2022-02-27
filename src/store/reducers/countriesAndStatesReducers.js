@@ -1,4 +1,4 @@
-import { actionTypes } from '../actions/CountriesAndStates.action';
+import { actionTypes } from '../actions/countriesAndStatesActions';
 
 const initialState = {
   data: [],
@@ -6,7 +6,7 @@ const initialState = {
   msg: '',
 };
 
-export default function GetCountriesAndStatesReducer(
+export default function getCountriesAndStatesReducer(
   state = initialState,
   { type, payload }
 ) {

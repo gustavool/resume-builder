@@ -18,8 +18,6 @@ export const Form = styled.form`
 
   .select {
     margin-top: 2px;
-    /* height: 25px; */
-    /* height: auto; */
   }
 
   .doubleFields {
@@ -32,6 +30,14 @@ export const Form = styled.form`
 
     .select {
       width: 50%;
+    }
+
+    & > div {
+      width: 50%;
+
+      &:last-child {
+        margin-left: 8px;
+      }
     }
   }
 

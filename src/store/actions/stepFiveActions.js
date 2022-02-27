@@ -2,7 +2,7 @@ export const actionTypes = {
   CHANGE: 'CHANGE_STEP_FIVE',
 };
 
-export const ChangeStepFive = (payload) => ({
+export const changeStepFive = (payload) => ({
   type: actionTypes.CHANGE,
   payload,
 });

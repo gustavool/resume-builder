@@ -1,8 +1,8 @@
 export const actionTypes = {
-  CHANGE: 'CHANGE_STEP_ONE',
+  CHANGE: 'CHANGE_STEP_TWO',
 };
 
-export const ChangeStepOne = (payload) => ({
+export const changeStepTwo = (payload) => ({
   type: actionTypes.CHANGE,
   payload,
 });

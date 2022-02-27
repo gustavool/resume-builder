@@ -1,4 +1,4 @@
-import { actionTypes } from '../actions/stepFive.action';
+import { actionTypes } from '../actions/stepFiveActions';
 
 const initialState = {
   name: '',
@@ -7,7 +7,7 @@ const initialState = {
   description: '',
 };
 
-export default function StepFiveReducer(
+export default function stepFiveReducer(
   state = initialState,
   { type, payload }
 ) {

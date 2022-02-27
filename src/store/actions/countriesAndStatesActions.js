@@ -4,7 +4,7 @@ export const actionTypes = {
   // GET_COUNTRIES_STATES_ERROR: 'GET_COUNTRIES_STATES_ERROR',
 };
 
-export const GetCountriesStates = () => (dispatch) => {
+export const getCountriesStates = () => (dispatch) => {
   fetch('https://countriesnow.space/api/v0.1/countries/states')
     .then((response) => response.json())
     .then((data) =>

@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 
-// import Select from 'react-select';
 import * as S from './styles';
 
-export default function InputSelect({ className, options, children, ...rest }) {
+export default function InputReactSelect({
+  className,
+  options,
+  children,
+  ...rest
+}) {
   return (
     <S.Container className={className}>
       {children}
@@ -17,7 +21,7 @@ export default function InputSelect({ className, options, children, ...rest }) {
   );
 }
 
-InputSelect.propTypes = {
+InputReactSelect.propTypes = {
   children: PropTypes.string.isRequired,
   className: PropTypes.string,
   options: PropTypes.arrayOf(

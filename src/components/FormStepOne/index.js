@@ -1,7 +1,7 @@
 // import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ChangeStepOne } from '../../store/actions/StepOne.action';
+import { changeStepOne } from '../../store/actions/stepOneActions';
 import Button from '../Button';
 import InputNumber from '../InputNumber';
 import InputSelect from '../InputSelect';
@@ -12,7 +12,7 @@ import * as S from './styles';
 export default function FormStepOne() {
   const dispatch = useDispatch();
 
-  const stepOne = useSelector((state) => state.StepOneReducer);
+  const stepOne = useSelector((state) => state.stepOneReducer);
   const genders = ['Male', 'Female', 'Other'];
 
   // const {
@@ -22,7 +22,7 @@ export default function FormStepOne() {
 
   function handleInputChange(e) {
     if (stepOne[e.target.name] !== e.target.value) {
-      dispatch(ChangeStepOne({ ...stepOne, [e.target.name]: e.target.value }));
+      dispatch(changeStepOne({ ...stepOne, [e.target.name]: e.target.value }));
     }
   }
 

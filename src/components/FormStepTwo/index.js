@@ -1,148 +1,138 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
-import { useQuery, useMutation } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { GetCities } from '../../store/actions/Cities.action';
-import { GetCountriesStates } from '../../store/actions/CountriesAndStates.action';
-import { ChangeStepTwo } from '../../store/actions/stepTwo.action';
+import { getCities } from '../../store/actions/citiesActions';
+import { getCountriesStates } from '../../store/actions/countriesAndStatesActions';
+import { changeStepTwo } from '../../store/actions/stepTwoActions';
 import BackButton from '../BackButton';
 import Button from '../Button';
+import CountrySelect from '../CountrySelect';
 import InputNumber from '../InputNumber';
-import InputSelect from '../InputSelect';
 import InputText from '../InputText';
 import TitleForm from '../TitleForm';
 import * as S from './styles';
 
 export default function FormStepTwo() {
-  const [states, setStates] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [countries, setCountries] = useState([]);
-  // const [countriesAndStates, setCountriesAndStates] = useState([]);
+  const [citiesOptions, setCitiesOptions] = useState([]);
+  const [countriesOptions, setCountriesOptions] = useState([]);
+  const [statesOptions, setStatesOptions] = useState([]);
 
   const dispatch = useDispatch();
 
-  const stepTwo = useSelector((state) => state.StepTwoReducer);
+  const stepTwo = useSelector((state) => state.stepTwoReducer);
 
-  useEffect(() => {
-    dispatch(GetCountriesStates());
-  }, []);
-
-  const state = useSelector((state) => state);
-  useEffect(() => {
-    // if(Array.isArray(CitiesReducer.payload) && CitiesReducer.payload.length > 0) {}
-    dispatch(GetCities('Brazil', 'Acre'));
-  }, []);
-
-  console.log('state', state);
-
-  const { data: countriesWithStates } = useQuery(
-    'countriesAndStates',
-    async () => {
-      const response = await fetch(
-        'https://countriesnow.space/api/v0.1/countries/states'
-      );
-
-      const json = await response.json();
-
-      return json;
-    },
-    {
-      staleTime: 1000 * 60 * 30, // 30 minutes
-    }
+  const countriesAndStates = useSelector(
+    (state) => state.countriesAndStatesReducer
   );
 
+  const cities = useSelector((state) => state.citiesReducer);
+
   useEffect(() => {
-    if (countriesWithStates) {
-      const countriesLabelValue = countriesWithStates?.data?.map((country) => {
+    if (!countriesAndStates || countriesAndStates.data.length === 0) {
+      dispatch(getCountriesStates());
+    }
+  });
+
+  useEffect(() => {
+    if (countriesAndStates) {
+      const countriesValueLabel = countriesAndStates?.data?.map((country) => {
         return {
           value: country.iso3,
           label: country.name,
         };
       });
 
-      setCountries(countriesLabelValue);
+      setCountriesOptions(countriesValueLabel);
+      setStatesOptions([]); //clear states options
     }
-  }, [countriesWithStates]);
-
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      country: stepTwo.country,
-      state: stepTwo.state,
-    }),
-  };
-
-  const { mutate, data: dataMut } = useMutation(() => {
-    return fetch(
-      'https://countriesnow.space/api/v0.1/countries/state/cities',
-      requestOptions
-    );
-  });
+  }, [countriesAndStates]);
 
   useEffect(() => {
-    if (Array.isArray(countriesWithStates?.data)) {
-      const countrySelected = countriesWithStates?.data?.find((country) => {
-        return country.name === stepTwo.country;
+    // dispatch(changeStepTwo({ ...stepTwo, ['state']: '' })); //clear state global state
+    // dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
+
+    if (Array.isArray(countriesAndStates.data)) {
+      const countrySelected = countriesAndStates.data.find((country) => {
+        return country.name === stepTwo?.country;
       });
 
       if (countrySelected?.states?.length > 0) {
-        const statesLabelValue = countrySelected.states.map((state) => {
+        const statesValueLabel = countrySelected.states.map((state) => {
           return {
             value: state.state_code,
             label: state.name,
           };
         });
 
-        setStates(statesLabelValue);
+        setStatesOptions(statesValueLabel);
+      } else {
+        dispatch(changeStepTwo({ ...stepTwo, ['state']: '' })); //clear state global state
+        // dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
+
+        setStatesOptions([]);
       }
     }
   }, [stepTwo.country]);
 
-  async function fetchCities() {
-    mutate();
+  // useEffect(() => {
+  //   if (!cities || cities.data.length === 0) {
+  //     dispatch(getCities(stepTwo.country, stepTwo.state));
+  //   }
+  // });
 
-    // vindo datMut antigo
-    const citiesJson = await dataMut?.json();
+  // useEffect(() => {
+  //   dispatch(getCities(stepTwo.country, stepTwo.state));
+  // }, [stepTwo.state]);
 
-    if (dataMut) {
-      const citiesLabelValue = await citiesJson?.data?.map((city, index) => {
-        return {
-          value: index.toString(),
-          label: city,
-        };
-      });
+  // useEffect(() => {
 
-      await setCities(citiesLabelValue);
-    }
-  }
+  //   dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
 
-  useEffect(() => {
-    fetchCities();
-  }, [stepTwo.state]);
+  //   if (Array.isArray(cities.data) && cities.data.length > 0) {
+  //     const citiesValueLabel = cities.data.map((city, index) => {
+  //       return {
+  //         value: index.toString(),
+  //         label: city,
+  //       };
+  //     });
+
+  //     setCitiesOptions(citiesValueLabel);
+  //   } else {
+  //     setCitiesOptions([]); //clear cities options
+  //   }
+  // }, [cities]);
 
   function handleInputChange(e) {
     if (stepTwo[e.target.name] !== e.target.value) {
-      dispatch(ChangeStepTwo({ ...stepTwo, [e.target.name]: e.target.value }));
+      dispatch(changeStepTwo({ ...stepTwo, [e.target.name]: e.target.value }));
     }
   }
 
   function handleSelectCountry(e) {
     if (stepTwo.country !== e.label) {
-      dispatch(ChangeStepTwo({ ...stepTwo, ['country']: e.label }));
+      dispatch(changeStepTwo({ ...stepTwo, ['state']: '' }));
+      setStatesOptions([]); //clear states options
+
+      dispatch(changeStepTwo({ ...stepTwo, ['country']: e.label }));
     }
   }
 
   function handleSelectState(e) {
     if (stepTwo.state !== e.label) {
-      dispatch(ChangeStepTwo({ ...stepTwo, ['state']: e.label }));
+      dispatch(changeStepTwo({ ...stepTwo, ['state']: e.label }));
     }
+  }
+
+  function handleSelectState2(e) {
+    console.log('e.target.value', e.target.value);
+
+    dispatch(changeStepTwo({ ...stepTwo, ['state']: e.target.value }));
   }
 
   function handleSelectCity(e) {
     if (stepTwo.city !== e.label) {
-      dispatch(ChangeStepTwo({ ...stepTwo, ['city']: e.label }));
+      dispatch(changeStepTwo({ ...stepTwo, ['city']: e.label }));
     }
   }
 
@@ -152,26 +142,20 @@ export default function FormStepTwo() {
 
       <TitleForm>Address</TitleForm>
 
+      <CountrySelect options={countriesOptions} />
+
+      {/* <StateSelect options={statesOptions} /> */}
+
       <div className='doubleFields'>
         <InputNumber
           name='number'
           placeholder='000000'
           maxLength='6'
-          defaultValue={stepTwo.number}
+          defaultValue={stepTwo?.number || ''}
           onBlur={handleInputChange}
         >
           Number
         </InputNumber>
-
-        <InputSelect
-          className='select'
-          placeholder={'select a country'}
-          options={countries}
-          onChange={handleSelectCountry}
-          value={countries?.find((option) => option.label === stepTwo.country)}
-        >
-          Country
-        </InputSelect>
       </div>
 
       <InputText
@@ -179,37 +163,15 @@ export default function FormStepTwo() {
         name='address'
         placeholder='av...'
         maxLength='80'
-        defaultValue={stepTwo.address}
+        defaultValue={stepTwo?.address || ''}
         onChange={handleInputChange}
       >
         Address
       </InputText>
 
-      <div className='doubleFields'>
-        <InputSelect
-          // placeholder={'select a state'}
-          options={states}
-          onChange={handleSelectState}
-          // value={states?.find((option) => option.label === stepTwo.state)}
-          placeholder={
-            states?.length <= 0 ? 'states not found' : 'select a state'
-          }
-        >
-          State
-        </InputSelect>
+      {console.log('statesOptions', statesOptions.length)}
 
-        <InputSelect
-          // placeholder={'select a city'}
-          options={cities}
-          onChange={handleSelectCity}
-          value={cities?.find((option) => option.label === stepTwo.city)}
-          placeholder={
-            cities?.length <= 0 ? 'cities not found' : 'select a state'
-          }
-        >
-          City
-        </InputSelect>
-      </div>
+      <div className='doubleFields'></div>
 
       <Button href='http://localhost:3000/StepThree'>Next</Button>
     </S.Form>

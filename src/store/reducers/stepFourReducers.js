@@ -1,14 +1,14 @@
-import { actionTypes } from '../actions/stepTwo.action';
+import { actionTypes } from '../actions/stepFourActions';
 
 const initialState = {
-  number: '',
-  country: '',
-  address: '',
-  state: '',
-  city: '',
+  name: '',
+  startDate: '',
+  endDate: '',
+  collegeSchool: '',
+  activities: '',
 };
 
-export default function StepTwoReducer(
+export default function stepFourReducer(
   state = initialState,
   { type, payload }
 ) {

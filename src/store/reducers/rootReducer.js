@@ -1,21 +1,21 @@
 import { combineReducers } from 'redux';
 
-import CitiesReducer from './Cities.reducer';
-import CountriesAndStatesReducer from './CountriesAndStates.reducer';
-import StepFiveReducer from './StepFive.reducer';
-import StepFourReducer from './StepFour.reducer';
-import StepOneReducer from './StepOne.reducer';
-import StepThreeReducer from './StepThree.reducer';
-import StepTwoReducer from './StepTwo.reducer';
+import citiesReducer from './citiesReducers';
+import countriesAndStatesReducer from './countriesAndStatesReducers';
+import stepFiveReducer from './stepFiveReducers';
+import stepFourReducer from './stepFourReducers';
+import stepOneReducer from './stepOneReducers';
+import stepThreeReducer from './stepThreeReducers';
+import stepTwoReducer from './stepTwoReducers';
 
 const rootReducer = combineReducers({
-  StepOneReducer,
-  StepTwoReducer,
-  StepThreeReducer,
-  StepFourReducer,
-  StepFiveReducer,
-  CountriesAndStatesReducer,
-  CitiesReducer,
+  stepOneReducer,
+  stepTwoReducer,
+  stepThreeReducer,
+  stepFourReducer,
+  stepFiveReducer,
+  countriesAndStatesReducer,
+  citiesReducer,
 });
 
 export default rootReducer;

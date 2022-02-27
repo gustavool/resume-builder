@@ -4,7 +4,7 @@ export const actionTypes = {
   GET_CITIES_ERROR: 'GET_CITIES_ERROR',
 };
 
-export const GetCities = (country, state) => (dispatch) => {
+export const getCities = (country, state) => (dispatch) => {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -23,16 +23,13 @@ export const GetCities = (country, state) => (dispatch) => {
       if (data.error === false) {
         dispatch({ type: actionTypes.GET_CITIES_SUCCESS, payload: data });
       } else {
-        dispatch({
-          type: actionTypes.GET_CITIES_ERROR,
-          data,
-        });
+        dispatch({ type: actionTypes.GET_CITIES_ERROR, payload: data });
       }
     })
     .catch((error) => {
       dispatch({
         type: actionTypes.GET_CITIES_ERROR,
-        data: { data: [], error: true, msg: error.message },
+        payload: { data: [], error: true, msg: error.message },
       });
     });
 };
