@@ -44,15 +44,20 @@ export default function FormStepTwo() {
         return country.name === stepTwo?.country;
       });
 
+      setStatesOptions([]); //clear states options
+      setCitiesOptions([]); //clear cities options
+
       if (countrySelected?.states?.length > 0) {
         setStatesOptions(countrySelected?.states);
-        // } else if (countrySelected?.states?.length === 0) {
-      } else {
-        dispatch(changeStepTwo({ ...stepTwo, ['state']: '' })); //clear state global state
-        dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
-
-        setStatesOptions([]); //clear states options
-        setCitiesOptions([]); //clear cities options
+        if (stepTwo.state !== '' && stepTwo.city !== '') {
+          dispatch(changeStepTwo({ ...stepTwo, ['city']: '', ['state']: '' })); //clear city global state
+        }
+      } else if (countrySelected?.states?.length === 0) {
+        if (stepTwo.city !== '' && stepTwo.state !== '') {
+          dispatch(changeStepTwo({ ...stepTwo, ['city']: '', ['state']: '' })); //clear city global state
+        } else if (stepTwo.state !== '') {
+          dispatch(changeStepTwo({ ...stepTwo, ['state']: '' })); //clear state global state
+        }
       }
     }
   }, [stepTwo.country]);
@@ -60,7 +65,6 @@ export default function FormStepTwo() {
   useEffect(() => {
     if (stepTwo.state !== '') {
       dispatch(getCities(stepTwo.country, stepTwo.state));
-      dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
     }
   }, [stepTwo.state]);
 
