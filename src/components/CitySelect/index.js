@@ -30,10 +30,10 @@ export default function CitySelect({ options }) {
         <option value='' disabled hidden>
           {options.length > 0 ? 'select a city' : 'no cities available'}
         </option>
-        {options.map((city) => {
+        {options.map((city, index) => {
           return (
-            <option key={city.value} value={city.label}>
-              {city.label}
+            <option key={index} value={city}>
+              {city}
             </option>
           );
         })}
@@ -43,10 +43,5 @@ export default function CitySelect({ options }) {
 }
 
 CitySelect.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

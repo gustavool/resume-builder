@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -21,31 +20,21 @@ export default function FormStepTwo() {
   const [statesOptions, setStatesOptions] = useState([]);
 
   const dispatch = useDispatch();
-
   const stepTwo = useSelector((state) => state.stepTwoReducer);
-
   const countriesAndStates = useSelector(
     (state) => state.countriesAndStatesReducer
   );
-
   const cities = useSelector((state) => state.citiesReducer);
 
   useEffect(() => {
     if (!countriesAndStates || countriesAndStates.data.length === 0) {
       dispatch(getCountriesStates());
     }
-  });
+  }, []);
 
   useEffect(() => {
     if (countriesAndStates) {
-      const countriesValueLabel = countriesAndStates?.data?.map((country) => {
-        return {
-          value: country.iso3,
-          label: country.name,
-        };
-      });
-
-      setCountriesOptions(countriesValueLabel);
+      setCountriesOptions(countriesAndStates.data);
     }
   }, [countriesAndStates]);
 
@@ -56,20 +45,14 @@ export default function FormStepTwo() {
       });
 
       if (countrySelected?.states?.length > 0) {
-        const statesValueLabel = countrySelected.states.map((state) => {
-          return {
-            value: state.state_code,
-            label: state.name,
-          };
-        });
-
-        setStatesOptions(statesValueLabel);
+        setStatesOptions(countrySelected?.states);
+        // } else if (countrySelected?.states?.length === 0) {
       } else {
         dispatch(changeStepTwo({ ...stepTwo, ['state']: '' })); //clear state global state
         dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
 
-        setStatesOptions([]);
-        setCitiesOptions([]);
+        setStatesOptions([]); //clear states options
+        setCitiesOptions([]); //clear cities options
       }
     }
   }, [stepTwo.country]);
@@ -77,76 +60,21 @@ export default function FormStepTwo() {
   useEffect(() => {
     if (stepTwo.state !== '') {
       dispatch(getCities(stepTwo.country, stepTwo.state));
+      dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
     }
   }, [stepTwo.state]);
 
   useEffect(() => {
-    console.log('cities', cities.data);
-
     if (Array.isArray(cities.data) && cities.data.length > 0) {
-      const citiesValueLabel = cities.data.map((city, index) => {
-        return {
-          value: index,
-          label: city,
-        };
-      });
-
-      setCitiesOptions(citiesValueLabel);
+      setCitiesOptions(cities.data);
     } else {
       setCitiesOptions([]);
     }
   }, [cities]);
 
-  console.log('citiesOptions', citiesOptions);
-
-  // useEffect(() => {
-
-  //   dispatch(changeStepTwo({ ...stepTwo, ['city']: '' })); //clear city global state
-
-  //   if (Array.isArray(cities.data) && cities.data.length > 0) {
-  //     const citiesValueLabel = cities.data.map((city, index) => {
-  //       return {
-  //         value: index.toString(),
-  //         label: city,
-  //       };
-  //     });
-
-  //     setCitiesOptions(citiesValueLabel);
-  //   } else {
-  //     setCitiesOptions([]); //clear cities options
-  //   }
-  // }, [cities]);
-
   function handleInputChange(e) {
     if (stepTwo[e.target.name] !== e.target.value) {
       dispatch(changeStepTwo({ ...stepTwo, [e.target.name]: e.target.value }));
-    }
-  }
-
-  function handleSelectCountry(e) {
-    if (stepTwo.country !== e.label) {
-      dispatch(changeStepTwo({ ...stepTwo, ['state']: '' }));
-      setStatesOptions([]); //clear states options
-
-      dispatch(changeStepTwo({ ...stepTwo, ['country']: e.label }));
-    }
-  }
-
-  function handleSelectState(e) {
-    if (stepTwo.state !== e.label) {
-      dispatch(changeStepTwo({ ...stepTwo, ['state']: e.label }));
-    }
-  }
-
-  function handleSelectState2(e) {
-    console.log('e.target.value', e.target.value);
-
-    dispatch(changeStepTwo({ ...stepTwo, ['state']: e.target.value }));
-  }
-
-  function handleSelectCity(e) {
-    if (stepTwo.city !== e.label) {
-      dispatch(changeStepTwo({ ...stepTwo, ['city']: e.label }));
     }
   }
 
@@ -155,12 +83,6 @@ export default function FormStepTwo() {
       <BackButton href='http://localhost:3000/StepOne' />
 
       <TitleForm>Address</TitleForm>
-
-      <CountrySelect options={countriesOptions} />
-
-      <StateSelect options={statesOptions} />
-
-      <CitySelect options={citiesOptions} />
 
       <div className='doubleFields'>
         <InputNumber
@@ -172,6 +94,8 @@ export default function FormStepTwo() {
         >
           Number
         </InputNumber>
+
+        <CountrySelect options={countriesOptions} />
       </div>
 
       <InputText
@@ -185,9 +109,11 @@ export default function FormStepTwo() {
         Address
       </InputText>
 
-      {console.log('statesOptions', statesOptions.length)}
+      <div className='doubleFields'>
+        <StateSelect options={statesOptions} />
 
-      <div className='doubleFields'></div>
+        <CitySelect options={citiesOptions} />
+      </div>
 
       <Button href='http://localhost:3000/StepThree'>Next</Button>
     </S.Form>

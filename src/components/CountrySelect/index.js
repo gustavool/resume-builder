@@ -31,8 +31,8 @@ export default function CountrySelect({ options }) {
         </option>
         {options.map((country) => {
           return (
-            <option key={country.value} value={country.label}>
-              {country.label}
+            <option key={country.iso3} value={country.name}>
+              {country.name}
             </option>
           );
         })}

@@ -4,6 +4,7 @@ const initialState = {
   data: [],
   error: false,
   msg: '',
+  isLoading: false,
 };
 
 export default function getCountriesAndStatesReducer(
@@ -11,7 +12,19 @@ export default function getCountriesAndStatesReducer(
   { type, payload }
 ) {
   switch (type) {
-    case actionTypes.GET_COUNTRIES_STATES:
+    case actionTypes.GET_COUNTRIES_STATES_START:
+      return {
+        ...state,
+        ...payload,
+      };
+
+    case actionTypes.GET_COUNTRIES_STATES_SUCCESS:
+      return {
+        ...state,
+        ...payload,
+      };
+
+    case actionTypes.GET_COUNTRIES_STATES_ERROR:
       return {
         ...state,
         ...payload,

@@ -6,7 +6,6 @@ import * as S from './styles';
 
 export default function StateSelect({ options }) {
   const dispatch = useDispatch();
-
   const stepTwo = useSelector((state) => state.stepTwoReducer);
 
   function handleInputChange(e) {
@@ -27,14 +26,13 @@ export default function StateSelect({ options }) {
         onChange={handleInputChange}
         disabled={stepTwo.country === '' || options.length === 0}
       >
-        {/* hidden */}
         <option value='' disabled hidden>
           {options.length > 0 ? 'select a state' : 'no states available'}
         </option>
         {options.map((state) => {
           return (
-            <option key={state.value} value={state.label}>
-              {state.label}
+            <option key={state.state_code} value={state.name}>
+              {state.name}
             </option>
           );
         })}
