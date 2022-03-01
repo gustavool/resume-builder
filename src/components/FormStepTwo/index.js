@@ -55,6 +55,9 @@ export default function FormStepTwo() {
     if (stepTwo.state !== '' && !isStateChanged) {
       setCitiesOptions([]); //clear cities options
       dispatch(getCities(stepTwo.country, stepTwo.state));
+      if (stepTwo.city !== '') {
+        dispatch(changeStepTwo({ ...stepTwo, city: '' }));
+      }
     }
   }, [stepTwo.state]);
 
