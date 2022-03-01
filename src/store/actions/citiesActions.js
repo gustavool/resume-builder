@@ -7,7 +7,6 @@ export const actionTypes = {
 export const getCities = (country, state) => (dispatch) => {
   dispatch({
     type: actionTypes.GET_CITIES_START,
-    payload: { isLoading: true },
   });
 
   const requestOptions = {
@@ -28,12 +27,12 @@ export const getCities = (country, state) => (dispatch) => {
       if (data.error === false) {
         dispatch({
           type: actionTypes.GET_CITIES_SUCCESS,
-          payload: { ...data, isLoading: false },
+          payload: { ...data },
         });
       } else {
         dispatch({
           type: actionTypes.GET_CITIES_ERROR,
-          payload: { ...data, isLoading: false },
+          payload: { ...data },
         });
       }
     })
@@ -44,7 +43,6 @@ export const getCities = (country, state) => (dispatch) => {
           data: [],
           error: true,
           msg: error.message,
-          isLoading: false,
         },
       });
     });

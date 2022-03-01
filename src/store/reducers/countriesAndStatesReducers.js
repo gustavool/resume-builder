@@ -16,18 +16,21 @@ export default function getCountriesAndStatesReducer(
       return {
         ...state,
         ...payload,
+        isLoading: true,
       };
 
     case actionTypes.GET_COUNTRIES_STATES_SUCCESS:
       return {
         ...state,
         ...payload,
+        isLoading: false,
       };
 
     case actionTypes.GET_COUNTRIES_STATES_ERROR:
       return {
         ...state,
         ...payload,
+        isLoading: false,
       };
 
     default:

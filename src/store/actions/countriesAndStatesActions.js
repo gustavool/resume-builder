@@ -7,7 +7,6 @@ export const actionTypes = {
 export const getCountriesStates = () => (dispatch) => {
   dispatch({
     type: actionTypes.GET_COUNTRIES_STATES_START,
-    payload: { isLoading: true },
   });
 
   fetch('https://countriesnow.space/api/v0.1/countries/states')
@@ -16,12 +15,12 @@ export const getCountriesStates = () => (dispatch) => {
       if (data.error === false) {
         dispatch({
           type: actionTypes.GET_COUNTRIES_STATES_SUCCESS,
-          payload: { ...data, isLoading: false },
+          payload: { ...data },
         });
       } else {
         dispatch({
           type: actionTypes.GET_COUNTRIES_STATES_ERROR,
-          payload: { ...data, isLoading: false },
+          payload: { ...data },
         });
       }
     })
@@ -32,7 +31,6 @@ export const getCountriesStates = () => (dispatch) => {
           data: [],
           error: true,
           msg: error.message,
-          isLoading: false,
         },
       })
     );
