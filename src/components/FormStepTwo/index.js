@@ -44,22 +44,9 @@ export default function FormStepTwo() {
         return country.name === stepTwo?.country;
       });
 
-      console.log('stateOptions', statesOptions);
-
-      setStatesOptions([]); //clear states options
-
-      if (countrySelected?.states?.length > 0) {
-        setStatesOptions(countrySelected?.states);
-        if (stepTwo.state !== '' && stepTwo.city !== '') {
-          dispatch(changeStepTwo({ ...stepTwo, ['city']: '', ['state']: '' })); //clear city global state
-        }
-      } else if (countrySelected?.states?.length === 0) {
-        if (stepTwo.city !== '' && stepTwo.state !== '') {
-          dispatch(changeStepTwo({ ...stepTwo, ['city']: '', ['state']: '' })); //clear city global state
-        } else if (stepTwo.state !== '') {
-          dispatch(changeStepTwo({ ...stepTwo, ['state']: '' })); //clear state global state
-        }
-      }
+      countrySelected?.states?.length > 0
+        ? setStatesOptions(countrySelected.states)
+        : setStatesOptions([]);
     }
   }, [stepTwo.country]);
 
