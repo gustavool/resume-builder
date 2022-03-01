@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import * as S from './styles';
 
-export default function Button({ href, children, type = 'button' }) {
+export default function Button({ href, children, type = 'button', ...rest }) {
   const router = useRouter();
 
   function handleClick(e) {
@@ -11,15 +11,19 @@ export default function Button({ href, children, type = 'button' }) {
     router.push(href);
   }
 
-  return (
-    <S.Container type={type} onClick={handleClick}>
+  return type === 'button' ? (
+    <S.Container type={type} onClick={handleClick} {...rest}>
+      {children}
+    </S.Container>
+  ) : (
+    <S.Container type={type} {...rest}>
       {children}
     </S.Container>
   );
 }
 
 Button.propTypes = {
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   type: PropTypes.string,
   children: PropTypes.string.isRequired,
 };

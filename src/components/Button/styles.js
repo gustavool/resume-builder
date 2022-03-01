@@ -15,5 +15,14 @@ export const Container = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.color.primary200};
     color: ${({ theme }) => theme.paragraph};
+
+    a {
+      color: ${({ theme }) => theme.paragraph};
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.background};
   }
 `;
