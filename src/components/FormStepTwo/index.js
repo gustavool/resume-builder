@@ -41,6 +41,7 @@ export default function FormStepTwo() {
   useEffect(() => {
     if (Array.isArray(countriesAndStates.data)) {
       const countrySelected = countriesAndStates.data.find((country) => {
+        console.log('fez find');
         return country.name === stepTwo?.country;
       });
 

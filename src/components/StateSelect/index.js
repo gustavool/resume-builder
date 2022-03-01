@@ -20,7 +20,6 @@ export default function StateSelect({ options }) {
 
       <select
         value={stepTwo.state}
-        defaultValue=''
         name='states'
         id='states'
         onChange={handleInputChange}
@@ -44,8 +43,8 @@ export default function StateSelect({ options }) {
 StateSelect.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
+      label: PropTypes.string,
+      value: PropTypes.string,
     })
   ).isRequired,
 };

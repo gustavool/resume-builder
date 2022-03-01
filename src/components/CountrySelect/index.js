@@ -28,7 +28,6 @@ export default function CountrySelect({ options }) {
 
       <select
         value={stepTwo.country}
-        defaultValue=''
         name='countries'
         id='countries'
         onChange={handleInputChange}
@@ -51,8 +50,8 @@ export default function CountrySelect({ options }) {
 CountrySelect.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
+      label: PropTypes.string,
+      value: PropTypes.string,
     })
   ).isRequired,
 };
