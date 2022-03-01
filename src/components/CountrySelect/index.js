@@ -11,8 +11,14 @@ export default function CountrySelect({ options }) {
 
   function handleInputChange(e) {
     if (stepTwo[e.target.value] !== e.target.value) {
-      dispatch(changeStepTwo({ ...stepTwo, ['country']: e.target.value }));
-      dispatch(changeStepTwo({ ...stepTwo, ['city']: '', ['state']: '' }));
+      dispatch(
+        changeStepTwo({
+          ...stepTwo,
+          ['country']: e.target.value,
+          ['city']: '',
+          ['state']: '',
+        })
+      );
     }
   }
 
