@@ -11,11 +11,11 @@ import TitleForm from '../TitleForm';
 import * as S from './styles';
 
 export default function FormStepSix() {
-  const stepOne = useSelector((state) => state.StepOneReducer);
-  const stepTwo = useSelector((state) => state.StepTwoReducer);
-  const stepThree = useSelector((state) => state.StepThreeReducer);
-  const stepFour = useSelector((state) => state.StepFourReducer);
-  const stepFive = useSelector((state) => state.StepFiveReducer);
+  const stepOne = useSelector((state) => state.stepOneReducer);
+  const stepTwo = useSelector((state) => state.stepTwoReducer);
+  const stepThree = useSelector((state) => state.stepThreeReducer);
+  const stepFour = useSelector((state) => state.stepFourReducer);
+  const stepFive = useSelector((state) => state.stepFiveReducer);
 
   return (
     <S.Form>

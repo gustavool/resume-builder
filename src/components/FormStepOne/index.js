@@ -1,4 +1,3 @@
-// import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeStepOne } from '../../store/actions/stepOneActions';
@@ -14,11 +13,6 @@ export default function FormStepOne() {
 
   const stepOne = useSelector((state) => state.stepOneReducer);
   const genders = ['Male', 'Female', 'Other'];
-
-  // const {
-  //   register,
-  //   formState: { errors },
-  // } = useForm();
 
   function handleInputChange(e) {
     if (stepOne[e.target.name] !== e.target.value) {
@@ -40,7 +34,6 @@ export default function FormStepOne() {
         >
           First Name
         </InputText>
-        {/* {errors.firstName && <span>This firstName is required</span>} */}
         <InputText
           name='lastName'
           placeholder='last name'
@@ -67,7 +60,7 @@ export default function FormStepOne() {
           name='gender'
           label='Gender'
           placeholder='select a gender'
-          optionsList={genders}
+          options={genders}
           defaultValue={stepOne.gender}
           onBlur={handleInputChange}
         />

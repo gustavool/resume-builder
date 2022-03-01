@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ChangeStepFive } from '../../store/actions/stepFive.action';
+import { changeStepFive } from '../../store/actions/stepFiveActions';
 import BackButton from '../BackButton';
 import Button from '../Button';
 import InputDate from '../InputDate';
@@ -11,12 +11,12 @@ import * as S from './styles';
 export default function FormStepFive() {
   const dispatch = useDispatch();
 
-  const stepFive = useSelector((state) => state.StepFiveReducer);
+  const stepFive = useSelector((state) => state.stepFiveReducer);
 
   function handleInputChange(e) {
     if (stepFive[e.target.name] !== e.target.value) {
       dispatch(
-        ChangeStepFive({ ...stepFive, [e.target.name]: e.target.value })
+        changeStepFive({ ...stepFive, [e.target.name]: e.target.value })
       );
     }
   }

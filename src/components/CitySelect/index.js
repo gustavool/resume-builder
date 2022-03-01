@@ -21,7 +21,6 @@ export default function CitySelect({ options }) {
 
       <select
         value={stepTwo.city}
-        // defaultValue=''
         name='cities'
         id='cities'
         onChange={handleInputChange}

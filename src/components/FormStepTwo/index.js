@@ -40,10 +40,9 @@ export default function FormStepTwo() {
 
   useEffect(() => {
     if (Array.isArray(countriesAndStates.data)) {
-      const countrySelected = countriesAndStates.data.find((country) => {
-        console.log('fez find');
-        return country.name === stepTwo?.country;
-      });
+      const countrySelected = countriesAndStates.data.find(
+        (country) => country.name === stepTwo?.country
+      );
 
       countrySelected?.states?.length > 0
         ? setStatesOptions(countrySelected.states)
@@ -102,7 +101,7 @@ export default function FormStepTwo() {
         placeholder='av...'
         maxLength='80'
         defaultValue={stepTwo?.address || ''}
-        onChange={handleInputChange}
+        onBlur={handleInputChange}
       >
         Address
       </InputText>
