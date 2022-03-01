@@ -47,7 +47,6 @@ export default function FormStepTwo() {
       console.log('stateOptions', statesOptions);
 
       setStatesOptions([]); //clear states options
-      setCitiesOptions([]); //clear cities options
 
       if (countrySelected?.states?.length > 0) {
         setStatesOptions(countrySelected?.states);
@@ -67,6 +66,7 @@ export default function FormStepTwo() {
   useEffect(() => {
     const isStateChanged = cities.msg.includes(stepTwo.state);
     if (stepTwo.state !== '' && !isStateChanged) {
+      setCitiesOptions([]); //clear cities options
       dispatch(getCities(stepTwo.country, stepTwo.state));
     }
   }, [stepTwo.state]);
