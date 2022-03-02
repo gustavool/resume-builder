@@ -18,6 +18,10 @@ export const Form = styled.main`
     margin-bottom: 8px;
   }
 
+  a:last-child {
+    margin-top: 16px;
+  }
+
   div {
     display: flex;
     align-items: center;

@@ -1,14 +1,12 @@
-import { PDFDownloadLink } from '@react-pdf/renderer';
 import { useSelector } from 'react-redux';
 
 import AddressCard from '../AddressCard';
 import BackButton from '../BackButton';
-import Button from '../Button';
 import CertificationCard from '../CertificationCard';
+import GeneratePdfButton from '../GeneratePdfButton';
 import GraduationCard from '../GraduationCard';
 import OccupationCard from '../OccupationCard';
 import PersonalDataCard from '../PersonalDataCard';
-import Resume from '../Resume';
 import TitleForm from '../TitleForm';
 import * as S from './styles';
 
@@ -21,9 +19,6 @@ export default function FormStepSix() {
 
   return (
     <S.Form>
-      <PDFDownloadLink fileName='teste' document={<Resume />}>
-        {({ loading }) => (loading ? 'Loading document...' : 'Download File')}
-      </PDFDownloadLink>
       <BackButton href='http://localhost:3000/StepFive' />
 
       <TitleForm>Review</TitleForm>
@@ -38,27 +33,9 @@ export default function FormStepSix() {
         <GraduationCard stepData={stepFour} />
 
         <CertificationCard stepData={stepFive} />
+
+        <GeneratePdfButton />
       </div>
-
-      {/* <section>
-        <h2>Personal Data</h2>
-        <div>
-          <p>First Name: {stepOne.firstName}</p>
-          <p>Last Name: {stepOne.lastName}</p>
-        </div>
-        <div>
-          <p>Age: {stepOne.age}</p>
-          <p>Gender: {stepOne.gender}</p>
-        </div>
-        <p>Email: {stepOne.email}</p>
-      </section> */}
-
-      <Button type='submit'>
-        <PDFDownloadLink fileName='teste' document={<Resume />}>
-          {({ loading }) => (loading ? 'Loading document...' : 'Generate PDF')}
-        </PDFDownloadLink>
-      </Button>
-      {/* <button onClick={() => handleGeneratePdf()}>Generate</button> */}
     </S.Form>
   );
 }
