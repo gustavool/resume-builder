@@ -36,7 +36,7 @@ PersonalDataCard.propTypes = {
   stepData: PropTypes.shape({
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
-    age: PropTypes.number.isRequired,
+    age: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }),

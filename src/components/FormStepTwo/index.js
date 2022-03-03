@@ -79,7 +79,7 @@ export default function FormStepTwo() {
     <S.Form>
       <BackButton href='http://localhost:3000/StepOne' />
 
-      <TitleForm>Address</TitleForm>
+      <TitleForm>Location</TitleForm>
 
       <div className='doubleFields'>
         <InputNumber

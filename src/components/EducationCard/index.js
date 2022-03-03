@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import EditButton from '../EditButton';
 import * as S from './styles';
 
-export default function OccupationCard({ stepData }) {
+export default function EducationCard({ stepData }) {
   return (
     <S.Container>
-      <h2>Occupation</h2>
+      <h2>Education</h2>
       <div>
         <p>
-          <strong>Occupation:</strong> {stepData.occupation}
+          <strong>Name:</strong> {stepData.name}
         </p>
         <p>
           <strong>Start Date:</strong> {stepData.startDate}
@@ -20,23 +20,23 @@ export default function OccupationCard({ stepData }) {
           <strong>End Date:</strong> {stepData.endDate}
         </p>
         <p>
-          <strong>Employer:</strong> {stepData.employer}
+          <strong>College/School:</strong> {stepData.collegeSchool}
         </p>
       </div>
       <p>
         <strong>Activities:</strong> {stepData.activities}
       </p>
-      <EditButton href='http://localhost:3000/StepThree' />
+      <EditButton href='http://localhost:3000/StepFour' />
     </S.Container>
   );
 }
 
-OccupationCard.propTypes = {
+EducationCard.propTypes = {
   stepData: PropTypes.shape({
-    occupation: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     startDate: PropTypes.string.isRequired,
     endDate: PropTypes.string.isRequired,
-    employer: PropTypes.string.isRequired,
+    collegeSchool: PropTypes.string.isRequired,
     activities: PropTypes.string.isRequired,
   }),
 };

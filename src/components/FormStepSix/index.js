@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 
-import AddressCard from '../AddressCard';
 import BackButton from '../BackButton';
 import CertificationCard from '../CertificationCard';
+import EducationCard from '../EducationCard';
 import GeneratePdfButton from '../GeneratePdfButton';
-import GraduationCard from '../GraduationCard';
-import OccupationCard from '../OccupationCard';
+import LocationCard from '../LocationCard';
 import PersonalDataCard from '../PersonalDataCard';
 import TitleForm from '../TitleForm';
+import WorkExperienceCard from '../WorkExperienceCard';
 import * as S from './styles';
 
 export default function FormStepSix() {
@@ -16,6 +16,16 @@ export default function FormStepSix() {
   const stepThree = useSelector((state) => state.stepThreeReducer);
   const stepFour = useSelector((state) => state.stepFourReducer);
   const stepFive = useSelector((state) => state.stepFiveReducer);
+
+  const allStepsData = {
+    stepOne,
+    stepTwo,
+    stepThree,
+    stepFour,
+    stepFive,
+  };
+
+  console.log('allStepsData', allStepsData);
 
   return (
     <S.Form>
@@ -26,15 +36,15 @@ export default function FormStepSix() {
       <div>
         <PersonalDataCard stepData={stepOne} />
 
-        <AddressCard stepData={stepTwo} />
+        <LocationCard stepData={stepTwo} />
 
-        <OccupationCard stepData={stepThree} />
+        <WorkExperienceCard stepData={stepThree} />
 
-        <GraduationCard stepData={stepFour} />
+        <EducationCard stepData={stepFour} />
 
         <CertificationCard stepData={stepFive} />
 
-        <GeneratePdfButton />
+        <GeneratePdfButton data={allStepsData} />
       </div>
     </S.Form>
   );

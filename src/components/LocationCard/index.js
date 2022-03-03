@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import EditButton from '../EditButton';
 import * as S from './styles';
 
-export default function AddressCard({ stepData }) {
+export default function LocationCard({ stepData }) {
   return (
     <S.Container>
-      <h2>Address</h2>
+      <h2>Location</h2>
       <div>
         <p>
           <strong>Number:</strong> {stepData.number}
@@ -32,7 +32,7 @@ export default function AddressCard({ stepData }) {
   );
 }
 
-AddressCard.propTypes = {
+LocationCard.propTypes = {
   stepData: PropTypes.shape({
     number: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,

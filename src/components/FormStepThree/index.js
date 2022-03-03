@@ -25,7 +25,7 @@ export default function FormStepThree() {
     <S.Form>
       <BackButton href='http://localhost:3000/StepTwo' />
 
-      <TitleForm>Occupations</TitleForm>
+      <TitleForm>Work Experience</TitleForm>
 
       <div className='doubleFields'>
         <InputText
