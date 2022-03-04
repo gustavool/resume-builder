@@ -25,8 +25,6 @@ export default function FormStepSix() {
     stepFive,
   };
 
-  console.log('allStepsData', allStepsData);
-
   return (
     <S.Form>
       <BackButton href='http://localhost:3000/StepFive' />

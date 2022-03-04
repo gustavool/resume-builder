@@ -1,12 +1,27 @@
 import PropTypes from 'prop-types';
 
+import TextError from '../TextError';
 import * as S from './styles';
 
-export default function InputText({ name, children, maxLength, ...rest }) {
+export default function InputText({
+  name,
+  children,
+  maxLength,
+  register,
+  error,
+  ...rest
+}) {
   return (
     <S.Container>
       {children}
-      <input name={name} type='text' maxLength={maxLength} {...rest} />
+      <input
+        name={name}
+        type='text'
+        maxLength={maxLength}
+        {...register(name)}
+        {...rest}
+      />
+      {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );
 }
@@ -14,5 +29,11 @@ export default function InputText({ name, children, maxLength, ...rest }) {
 InputText.propTypes = {
   name: PropTypes.string.isRequired,
   maxLength: PropTypes.string.isRequired,
+  register: PropTypes.func.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    ref: PropTypes.string.isRequired, //object ???
+  }),
   children: PropTypes.string.isRequired,
 };

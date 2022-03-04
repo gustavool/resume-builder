@@ -1,18 +1,28 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeStepOne } from '../../store/actions/stepOneActions';
+import { stepOneSchema } from '../../yup/schemas';
 import Button from '../Button';
 import InputNumber from '../InputNumber';
 import InputSelect from '../InputSelect';
 import InputText from '../InputText';
 import TitleForm from '../TitleForm';
 import * as S from './styles';
-
 export default function FormStepOne() {
   const dispatch = useDispatch();
 
   const stepOne = useSelector((state) => state.stepOneReducer);
   const genders = ['Male', 'Female', 'Other'];
+
+  const {
+    register,
+    formState: { errors },
+  } = useForm({
+    mode: 'all',
+    resolver: yupResolver(stepOneSchema),
+  });
 
   function handleInputChange(e) {
     if (stepOne[e.target.name] !== e.target.value) {
@@ -31,15 +41,20 @@ export default function FormStepOne() {
           maxLength='50'
           defaultValue={stepOne.firstName}
           onBlur={handleInputChange}
+          register={register}
+          error={errors.firstName}
         >
           First Name
         </InputText>
+
         <InputText
           name='lastName'
           placeholder='last name'
           maxLength='50'
           defaultValue={stepOne.lastName}
           onBlur={handleInputChange}
+          register={register}
+          error={errors.lastName}
         >
           Last Name
         </InputText>
@@ -52,6 +67,7 @@ export default function FormStepOne() {
           maxLength='3'
           defaultValue={stepOne.age}
           onBlur={handleInputChange}
+          register={register}
         >
           Age
         </InputNumber>
@@ -63,6 +79,7 @@ export default function FormStepOne() {
           options={genders}
           defaultValue={stepOne.gender}
           onBlur={handleInputChange}
+          register={register}
         />
       </div>
 
@@ -73,6 +90,8 @@ export default function FormStepOne() {
         maxLength='50'
         defaultValue={stepOne.email}
         onBlur={handleInputChange}
+        register={register}
+        error={errors.email}
       >
         Email
       </InputText>

@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 export default function ResumePdf({ data }) {
-  console.log('styles', styles);
-
   return (
     <Document>
       <Page size='A4' style={styles.body}>
