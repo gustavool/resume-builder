@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeStepTwo } from '../../store/actions/stepTwoActions';
+import TextError from '../TextError';
 import * as S from './styles';
 
-export default function CitySelect({ options }) {
+export default function CitySelect({ options, register, error }) {
   const dispatch = useDispatch();
 
   const stepTwo = useSelector((state) => state.stepTwoReducer);
@@ -17,12 +18,12 @@ export default function CitySelect({ options }) {
 
   return (
     <S.Container>
-      <label htmlFor='cities'>City</label>
-
+      <label htmlFor='city'>City</label>
       <select
+        {...register('city')}
         value={stepTwo.city}
-        name='cities'
-        id='cities'
+        name='city'
+        id='city'
         onChange={handleInputChange}
         disabled={stepTwo.state === '' || options.length === 0}
       >
@@ -36,11 +37,18 @@ export default function CitySelect({ options }) {
             </option>
           );
         })}
-      </select>
+      </select>{' '}
+      {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );
 }
 
 CitySelect.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  register: PropTypes.func.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    ref: PropTypes.object.isRequired,
+  }),
 };

@@ -1,6 +1,9 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeStepFour } from '../../store/actions/stepFourActions';
+import { stepFourSchema } from '../../yup/schemas';
 import BackButton from '../BackButton';
 import Button from '../Button';
 import InputDate from '../InputDate';
@@ -12,6 +15,14 @@ export default function FormStepFour() {
   const dispatch = useDispatch();
 
   const stepFour = useSelector((state) => state.stepFourReducer);
+
+  const {
+    register,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'all',
+    resolver: yupResolver(stepFourSchema),
+  });
 
   function handleInputChange(e) {
     if (stepFour[e.target.name] !== e.target.value) {
@@ -34,6 +45,8 @@ export default function FormStepFour() {
           maxLength='50'
           defaultValue={stepFour.name}
           onBlur={handleInputChange}
+          register={register}
+          error={errors.name}
         >
           Course name
         </InputText>
@@ -43,6 +56,8 @@ export default function FormStepFour() {
           maxLength='50'
           defaultValue={stepFour.collegeSchool}
           onBlur={handleInputChange}
+          register={register}
+          error={errors.collegeSchool}
         >
           College/School
         </InputText>
@@ -53,6 +68,8 @@ export default function FormStepFour() {
           name='startDate'
           onChange={handleInputChange}
           defaultValue={stepFour.startDate}
+          register={register}
+          error={errors.startDate}
         >
           Start Date
         </InputDate>
@@ -62,6 +79,8 @@ export default function FormStepFour() {
           onChange={handleInputChange}
           min={stepFour.startDate}
           disabled={stepFour.startDate === ''}
+          register={register}
+          error={errors.endDate}
         >
           End Date
         </InputDate>
@@ -74,11 +93,15 @@ export default function FormStepFour() {
         maxLength='200'
         defaultValue={stepFour.activities}
         onBlur={handleInputChange}
+        register={register}
+        error={errors.activities}
       >
         Activities
       </InputText>
 
-      <Button href='http://localhost:3000/StepFive'>Next</Button>
+      <Button href='http://localhost:3000/StepFive' disabled={!isValid}>
+        Next
+      </Button>
     </S.Form>
   );
 }

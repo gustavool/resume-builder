@@ -33,7 +33,7 @@ InputText.propTypes = {
   error: PropTypes.shape({
     message: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    ref: PropTypes.string.isRequired, //object ???
+    ref: PropTypes.object.isRequired,
   }),
   children: PropTypes.string.isRequired,
 };

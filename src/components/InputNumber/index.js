@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+import TextError from '../TextError';
 import * as S from './styles';
 
 export default function InputNumber({
@@ -7,6 +8,7 @@ export default function InputNumber({
   maxLength,
   children,
   register,
+  error,
   ...rest
 }) {
   function maxLengthLimit(e) {
@@ -25,6 +27,7 @@ export default function InputNumber({
         {...register(name)}
         {...rest}
       />
+      {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );
 }
@@ -33,5 +36,10 @@ InputNumber.propTypes = {
   name: PropTypes.string.isRequired,
   maxLength: PropTypes.string.isRequired,
   register: PropTypes.func.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    ref: PropTypes.object.isRequired,
+  }),
   children: PropTypes.string.isRequired,
 };

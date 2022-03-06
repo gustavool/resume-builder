@@ -18,7 +18,7 @@ export default function FormStepOne() {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     mode: 'all',
     resolver: yupResolver(stepOneSchema),
@@ -68,6 +68,7 @@ export default function FormStepOne() {
           defaultValue={stepOne.age}
           onBlur={handleInputChange}
           register={register}
+          error={errors.age}
         >
           Age
         </InputNumber>
@@ -78,8 +79,9 @@ export default function FormStepOne() {
           placeholder='select a gender'
           options={genders}
           defaultValue={stepOne.gender}
-          onBlur={handleInputChange}
+          onChange={handleInputChange}
           register={register}
+          error={errors.gender}
         />
       </div>
 
@@ -96,7 +98,9 @@ export default function FormStepOne() {
         Email
       </InputText>
 
-      <Button href='http://localhost:3000/StepTwo'>Next</Button>
+      <Button href='http://localhost:3000/StepTwo' disabled={!isValid}>
+        Next
+      </Button>
     </S.Form>
   );
 }

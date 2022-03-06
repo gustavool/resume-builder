@@ -1,13 +1,22 @@
 import PropTypes from 'prop-types';
 
+import TextError from '../TextError';
 import * as S from './styles';
 
-export default function InputSelect({ placeholder, options, ...rest }) {
+export default function InputSelect({
+  label,
+  name,
+  placeholder,
+  options,
+  register,
+  error,
+  ...rest
+}) {
   return (
     <S.Container>
-      <label htmlFor='cities'>City</label>
+      <label htmlFor={name}>{label}</label>
 
-      <select {...rest}>
+      <select {...register(name)} name={name} id={name} {...rest}>
         <option value='' disabled hidden>
           {placeholder}
         </option>
@@ -20,11 +29,20 @@ export default function InputSelect({ placeholder, options, ...rest }) {
           );
         })}
       </select>
+      {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );
 }
 
 InputSelect.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  register: PropTypes.func.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    ref: PropTypes.object.isRequired,
+  }),
 };

@@ -1,6 +1,9 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeStepThree } from '../../store/actions/stepThreeActions';
+import { stepThreeSchema } from '../../yup/schemas';
 import BackButton from '../BackButton';
 import Button from '../Button';
 import InputDate from '../InputDate';
@@ -12,6 +15,14 @@ export default function FormStepThree() {
   const dispatch = useDispatch();
 
   const stepThree = useSelector((state) => state.stepThreeReducer);
+
+  const {
+    register,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'all',
+    resolver: yupResolver(stepThreeSchema),
+  });
 
   function handleInputChange(e) {
     if (stepThree[e.target.name] !== e.target.value) {
@@ -34,6 +45,8 @@ export default function FormStepThree() {
           maxLength='50'
           defaultValue={stepThree.occupation}
           onBlur={handleInputChange}
+          register={register}
+          error={errors.occupation}
         >
           Occupation
         </InputText>
@@ -44,6 +57,8 @@ export default function FormStepThree() {
           maxLength='50'
           defaultValue={stepThree.employer}
           onBlur={handleInputChange}
+          register={register}
+          error={errors.employer}
         >
           Employer
         </InputText>
@@ -54,6 +69,8 @@ export default function FormStepThree() {
           name='startDate'
           defaultValue={stepThree.startDate}
           onChange={handleInputChange}
+          register={register}
+          error={errors.startDate}
         >
           Start Date
         </InputDate>
@@ -64,6 +81,8 @@ export default function FormStepThree() {
           onChange={handleInputChange}
           min={stepThree.startDate}
           disabled={stepThree.startDate === ''}
+          register={register}
+          error={errors.endDate}
         >
           End Date
         </InputDate>
@@ -76,11 +95,15 @@ export default function FormStepThree() {
         maxLength='200'
         defaultValue={stepThree.activities}
         onBlur={handleInputChange}
+        register={register}
+        error={errors.activities}
       >
         Activities
       </InputText>
 
-      <Button href='http://localhost:3000/StepFour'>Next</Button>
+      <Button href='http://localhost:3000/StepFour' disabled={!isValid}>
+        Next
+      </Button>
     </S.Form>
   );
 }

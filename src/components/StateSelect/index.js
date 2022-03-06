@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeStepTwo } from '../../store/actions/stepTwoActions';
+import TextError from '../TextError';
 import * as S from './styles';
 
-export default function StateSelect({ options }) {
+export default function StateSelect({ options, register, error }) {
   const dispatch = useDispatch();
   const stepTwo = useSelector((state) => state.stepTwoReducer);
 
@@ -16,12 +17,12 @@ export default function StateSelect({ options }) {
 
   return (
     <S.Container>
-      <label htmlFor='states'>State</label>
-
+      <label htmlFor='state'>State</label>
       <select
+        {...register('state')}
         value={stepTwo.state}
-        name='states'
-        id='states'
+        name='state'
+        id='state'
         onChange={handleInputChange}
         disabled={stepTwo.country === '' || options.length === 0}
       >
@@ -36,6 +37,7 @@ export default function StateSelect({ options }) {
           );
         })}
       </select>
+      {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );
 }
@@ -47,4 +49,10 @@ StateSelect.propTypes = {
       value: PropTypes.string,
     })
   ).isRequired,
+  register: PropTypes.func.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    ref: PropTypes.object.isRequired,
+  }),
 };

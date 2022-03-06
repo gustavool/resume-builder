@@ -23,4 +23,8 @@ export const Container = styled.div`
   option {
     color: ${({ theme }) => theme.paragraph};
   }
+
+  span {
+    text-transform: none;
+  }
 `;

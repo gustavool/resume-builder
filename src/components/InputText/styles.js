@@ -21,4 +21,8 @@ export const Container = styled.label`
       border-color: ${({ theme }) => theme.color.primary400};
     }
   }
+
+  span {
+    text-transform: none;
+  }
 `;

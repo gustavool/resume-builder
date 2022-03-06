@@ -7,10 +7,10 @@ export const stepOneSchema = yup.object().shape({
   lastName: yup.string().required('Last name is required'),
   age: yup
     .number()
+    .required('Age is required')
     .typeError('Must be a number')
     .positive('Must be a positive value')
-    .integer('Must be a number')
-    .required('Age is required'),
+    .integer('Must be a number'),
   gender: yup.string().required('Gender is required'),
   email: yup
     .string()
@@ -26,7 +26,7 @@ export const stepTwoSchema = yup.object().shape({
     .integer('Must be a number')
     .required('Number is required'),
   address: yup.string().required('Address is required'),
-  country: yup.string().required('Country is required'),
+  country: yup.string('Must be a string'),
   state: yup.string('Must be a string'),
   city: yup.string('Must be a string'),
 });

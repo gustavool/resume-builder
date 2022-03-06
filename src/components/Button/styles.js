@@ -16,4 +16,13 @@ export const Container = styled.button`
     background-color: ${({ theme }) => theme.color.primary200};
     color: ${({ theme }) => theme.paragraph};
   }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.primary200};
+    cursor: default;
+
+    &:hover {
+      color: ${({ theme }) => theme.background};
+    }
+  }
 `;

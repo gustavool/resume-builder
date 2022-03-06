@@ -33,4 +33,8 @@ export const Container = styled.label`
       -moz-appearance: textfield;
     }
   }
+
+  span {
+    text-transform: none;
+  }
 `;
