@@ -68,6 +68,7 @@ export default function FormStepFive() {
         placeholder='link/url'
         onBlur={handleInputChange}
         defaultValue={stepFive.linkUrl}
+        isOptional={true}
         maxLength='50'
         register={register}
         error={errors.linkUrl}

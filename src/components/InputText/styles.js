@@ -8,6 +8,18 @@ export const Container = styled.label`
   font-weight: bold;
   text-transform: capitalize;
 
+  div {
+    display: flex;
+    align-items: center;
+
+    small {
+      font-size: 12px;
+      text-transform: none;
+      margin-left: 4px;
+      color: ${({ theme }) => theme.color.primary200};
+    }
+  }
+
   input {
     padding: 0 16px;
     background-color: ${({ theme }) => theme.backgroundSecondary};
