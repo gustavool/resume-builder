@@ -6,7 +6,9 @@ export default function Header() {
     <S.Container>
       <nav>
         <Logo />
-        <GitHubIcon />
+        <a href='https://github.com/gustavool/resume-builder'>
+          <GitHubIcon />
+        </a>
       </nav>
     </S.Container>
   );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.header`
   background-color: ${({ theme }) => theme.color.primary400};
   width: 100%;
-  height: 60px;
+  height: 64px;
 
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
 
-    svg {
+    a {
       align-self: center;
     }
   }
