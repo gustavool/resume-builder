@@ -16,6 +16,7 @@ export const dark = {
   background: '#0f0e17',
   backgroundSecondary: '#f5f6f8',
   head: '#fffffe',
-  paragraph: '#a7a9be',
+  paragraph: '#393b43',
+  // paragraph: '#a7a9be',
   text: '#fffffe',
 };
