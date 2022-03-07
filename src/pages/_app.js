@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyles />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Header>Teste</Header>
+          <Header />
           <Component {...pageProps} />
           <Footer />
         </PersistGate>
