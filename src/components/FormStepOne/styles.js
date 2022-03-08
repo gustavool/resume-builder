@@ -5,9 +5,8 @@ import { breakpoints } from '../../styles/breakpoints';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
-  max-width: 500px;
+  height: 100%;
 
   h3 {
     margin-bottom: 16px;

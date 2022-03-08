@@ -8,7 +8,6 @@ import Button from '../Button';
 import InputNumber from '../InputNumber';
 import InputSelect from '../InputSelect';
 import InputText from '../InputText';
-import ProgressBar from '../ProgressBar';
 import TitleForm from '../TitleForm';
 import * as S from './styles';
 export default function FormStepOne() {
@@ -33,7 +32,6 @@ export default function FormStepOne() {
 
   return (
     <S.Form>
-      <ProgressBar />
       <TitleForm>Personal Data</TitleForm>
 
       <div className='doubleFields'>

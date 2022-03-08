@@ -1,12 +1,16 @@
 import FormStepOne from '../../components/FormStepOne';
+import ProgressBar from '../../components/ProgressBar';
 import PersonalData from '../../components/SVGs/PersonalData';
 import * as S from './styles';
 
 export default function StepOne() {
   return (
     <S.Container>
-      <PersonalData />
-      <FormStepOne />
+      <ProgressBar stepOne />
+      <S.Box>
+        <PersonalData height='350' width='350' />
+        <FormStepOne />
+      </S.Box>
     </S.Container>
   );
 }
