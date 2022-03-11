@@ -4,6 +4,7 @@ export const Container = styled.footer`
   background-color: ${({ theme }) => theme.color.primary200};
   width: 100%;
   height: 40px;
+  margin-top: auto;
 
   color: ${({ theme }) => theme.paragraph};
   font-size: 12px;

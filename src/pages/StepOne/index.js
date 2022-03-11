@@ -8,7 +8,7 @@ export default function StepOne() {
     <S.Container>
       <ProgressBar stepOne />
       <S.Box>
-        <PersonalData height='350' width='350' />
+        <PersonalData />
         <FormStepOne />
       </S.Box>
     </S.Container>

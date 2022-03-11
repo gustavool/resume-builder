@@ -11,6 +11,8 @@ export const Container = styled.div`
 
   margin-bottom: 48px;
 
+  margin-top: 48px;
+
   @media (max-width: ${breakpoints.mobile}px) {
     margin: 16px 0;
   }

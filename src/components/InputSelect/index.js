@@ -16,19 +16,21 @@ export default function InputSelect({
     <S.Container>
       <label htmlFor={name}>{label}</label>
 
-      <select {...register(name)} name={name} id={name} {...rest}>
-        <option value='' disabled hidden>
-          {placeholder}
-        </option>
+      <S.SelectBox>
+        <select {...register(name)} name={name} id={name} {...rest}>
+          <option value='' disabled hidden>
+            {placeholder}
+          </option>
 
-        {options.map((item, index) => {
-          return (
-            <option key={index} value={item}>
-              {item}
-            </option>
-          );
-        })}
-      </select>
+          {options.map((item, index) => {
+            return (
+              <option key={index} value={item}>
+                {item}
+              </option>
+            );
+          })}
+        </select>
+      </S.SelectBox>
       {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );

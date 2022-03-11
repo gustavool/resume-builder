@@ -13,21 +13,19 @@ export default function InputText({
   ...rest
 }) {
   return (
-    <>
-      <S.Container>
-        <div>
-          {children} {isOptional && <small>optional</small>}
-        </div>
-        <input
-          name={name}
-          type='text'
-          maxLength={maxLength}
-          {...register(name)}
-          {...rest}
-        />
-        {error && <TextError>{error.message}</TextError>}
-      </S.Container>
-    </>
+    <S.Container>
+      <div>
+        {children} {isOptional && <small>optional</small>}
+      </div>
+      <input
+        name={name}
+        type='text'
+        maxLength={maxLength}
+        {...register(name)}
+        {...rest}
+      />
+      {error && <TextError>{error.message}</TextError>}
+    </S.Container>
   );
 }
 

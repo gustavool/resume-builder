@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 import { breakpoints } from '../../styles/breakpoints';
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-
+  align-items: space-between;
   h3 {
     margin-bottom: 16px;
   }
@@ -16,19 +14,23 @@ export const Form = styled.form`
     display: flex;
     margin-bottom: 8px;
 
-    label:first-child,
-    div:first-child {
-      margin-right: 4px;
-    }
-
-    label:last-child,
-    div:last-child {
-      margin-left: 4px;
-    }
-
     label,
-    div {
+    & > label + div {
       width: 50%;
+    }
+
+    @media (min-width: ${breakpoints.tablet}px) {
+      label:first-child {
+        margin-right: 2px;
+      }
+
+      label:last-child {
+        margin-left: 2px;
+      }
+
+      & > label + div {
+        margin-left: 2px;
+      }
     }
   }
 
@@ -37,12 +39,6 @@ export const Form = styled.form`
   }
 
   button {
-    margin-top: 8px;
+    margin-top: auto;
   }
-
-  /* @media (max-width: ${breakpoints.laptop}px) {
-    a:first-child {
-
-    }
-  } */
 `;

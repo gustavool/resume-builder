@@ -13,14 +13,12 @@ export default createGlobalStyle`
     background-color: ${({ theme }) => theme.background};
     width: 100%;
     -webkit-font-smoothing: antialiased;
-    /* height: 100%; */
-    /* max-width: 1200px; */
     margin: 0 auto;
 
     & > div {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     min-height: 100vh;
     }
 

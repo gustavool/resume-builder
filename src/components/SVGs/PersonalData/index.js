@@ -1,8 +1,6 @@
-import * as S from './styles';
-
 export default function PersonalData(props) {
   return (
-    <S.Svg
+    <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='69.18 67.15 355.98 335.65'
       {...props}
@@ -383,6 +381,6 @@ export default function PersonalData(props) {
           fill: '#f25f4c',
         }}
       />
-    </S.Svg>
+    </svg>
   );
 }

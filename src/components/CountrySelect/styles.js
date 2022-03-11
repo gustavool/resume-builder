@@ -7,10 +7,11 @@ export const Container = styled.div`
   font-weight: bold;
 
   select {
+    margin-top: 2px;
     padding: 0 16px;
     border: 2px solid transparent;
     border-radius: 4px;
-    height: 48px;
+    height: 44.5px;
     color: ${({ theme }) => theme.paragraph};
     outline-color: ${({ theme }) => theme.color.primary400};
 
