@@ -19,7 +19,7 @@ export const Form = styled.form`
       width: 50%;
     }
 
-    @media (min-width: ${breakpoints.tablet}px) {
+    @media (min-width: ${breakpoints.laptop}px) {
       label:first-child {
         margin-right: 2px;
       }

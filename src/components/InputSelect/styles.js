@@ -7,9 +7,6 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.paragraph};
   font-weight: bold;
 
-  select {
-  }
-
   span {
     text-transform: none;
   }

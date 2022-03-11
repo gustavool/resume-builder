@@ -20,7 +20,8 @@ export const Box = styled.div`
   svg {
     margin-right: 8px;
     width: 50%;
-    height: 450px;
+    height: 100%;
+    max-height: 450px;
     align-self: flex-start;
   }
 
@@ -31,18 +32,16 @@ export const Box = styled.div`
     height: 450px;
   }
 
-  @media (max-width: ${breakpoints.tablet}px) {
+  @media (max-width: ${breakpoints.mobile}px) {
     flex-direction: column;
     svg {
       align-self: center;
       width: 50%;
-      height: 100%;
-      margin: 0 0 16px 0;
     }
 
     form {
       align-self: center;
-      margin-left: 0;
+      margin: 16px 0 0 0;
       width: 100%;
     }
   }

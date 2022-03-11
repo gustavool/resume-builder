@@ -19,25 +19,28 @@ export default function CitySelect({ options, register, error }) {
   return (
     <S.Container>
       <label htmlFor='city'>City</label>
-      <select
-        {...register('city')}
-        value={stepTwo.city}
-        name='city'
-        id='city'
-        onChange={handleInputChange}
-        disabled={stepTwo.state === '' || options.length === 0}
-      >
-        <option value='' disabled hidden>
-          {options.length > 0 ? 'select a city' : 'no cities available'}
-        </option>
-        {options.map((city, index) => {
-          return (
-            <option key={index} value={city}>
-              {city}
-            </option>
-          );
-        })}
-      </select>{' '}
+
+      <S.SelectBox>
+        <select
+          {...register('city')}
+          value={stepTwo.city}
+          name='city'
+          id='city'
+          onChange={handleInputChange}
+          disabled={stepTwo.state === '' || options.length === 0}
+        >
+          <option value='' disabled hidden>
+            {options.length > 0 ? 'select a city' : 'no cities available'}
+          </option>
+          {options.map((city, index) => {
+            return (
+              <option key={index} value={city}>
+                {city}
+              </option>
+            );
+          })}
+        </select>
+      </S.SelectBox>
       {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );

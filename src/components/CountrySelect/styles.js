@@ -1,27 +1,38 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.paragraph};
   font-weight: bold;
 
-  select {
-    margin-top: 2px;
-    padding: 0 16px;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    height: 44.5px;
-    color: ${({ theme }) => theme.paragraph};
-    outline-color: ${({ theme }) => theme.color.primary400};
+  span {
+    text-transform: none;
+  }
+`;
 
-    &:focus {
-      border-radius: 4px;
-      border-color: ${({ theme }) => theme.color.primary400};
-    }
+export const SelectBox = styled.div`
+  width: 100%;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  height: 48px;
+
+  &:focus-within {
+    border-color: ${({ theme }) => theme.color.primary400};
   }
 
-  option {
-    color: ${({ theme }) => theme.paragraph};
+  select {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    outline: none;
+    border: 2px solid transparent;
+    background-color: ${({ theme }) => theme.backgroundSecondary};
+    border-radius: 2px;
+
+    option {
+      color: ${({ theme }) => theme.paragraph};
+    }
   }
 `;

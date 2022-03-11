@@ -1,8 +1,6 @@
-import * as S from './styles';
-
 export default function Address(props) {
   return (
-    <S.Svg
+    <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='95.56 128.92 286.28 288.05'
       {...props}
@@ -321,6 +319,6 @@ export default function Address(props) {
           mixBlendMode: 'color-dodge',
         }}
       />
-    </S.Svg>
+    </svg>
   );
 }

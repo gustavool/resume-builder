@@ -18,25 +18,27 @@ export default function StateSelect({ options, register, error }) {
   return (
     <S.Container>
       <label htmlFor='state'>State</label>
-      <select
-        {...register('state')}
-        value={stepTwo.state}
-        name='state'
-        id='state'
-        onChange={handleInputChange}
-        disabled={stepTwo.country === '' || options.length === 0}
-      >
-        <option value='' disabled hidden>
-          {options.length > 0 ? 'select a state' : 'no states available'}
-        </option>
-        {options.map((state) => {
-          return (
-            <option key={state.state_code} value={state.name}>
-              {state.name}
-            </option>
-          );
-        })}
-      </select>
+      <S.SelectBox>
+        <select
+          {...register('state')}
+          value={stepTwo.state}
+          name='state'
+          id='state'
+          onChange={handleInputChange}
+          disabled={stepTwo.country === '' || options.length === 0}
+        >
+          <option value='' disabled hidden>
+            {options.length > 0 ? 'select a state' : 'no states available'}
+          </option>
+          {options.map((state) => {
+            return (
+              <option key={state.state_code} value={state.name}>
+                {state.name}
+              </option>
+            );
+          })}
+        </select>
+      </S.SelectBox>
       {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );

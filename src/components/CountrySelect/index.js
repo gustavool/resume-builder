@@ -26,25 +26,28 @@ export default function CountrySelect({ options, register, error, ...rest }) {
   return (
     <S.Container>
       <label htmlFor='country'>Country</label>
-      <select
-        {...register('country')}
-        value={stepTwo.country}
-        name='country'
-        id='country'
-        onChange={handleInputChange}
-        {...rest}
-      >
-        <option value='' disabled hidden>
-          select a country
-        </option>
-        {options.map((country) => {
-          return (
-            <option key={country.iso3} value={country.name}>
-              {country.name}
-            </option>
-          );
-        })}
-      </select>{' '}
+
+      <S.SelectBox>
+        <select
+          {...register('country')}
+          value={stepTwo.country}
+          name='country'
+          id='country'
+          onChange={handleInputChange}
+          {...rest}
+        >
+          <option value='' disabled hidden>
+            select a country
+          </option>
+          {options.map((country) => {
+            return (
+              <option key={country.iso3} value={country.name}>
+                {country.name}
+              </option>
+            );
+          })}
+        </select>
+      </S.SelectBox>
       {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );
