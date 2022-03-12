@@ -24,12 +24,12 @@ export const Form = styled.form`
       width: 50%;
     }
 
+    label + label {
+      margin-left: 4px;
+    }
+
     & > div {
       width: 50%;
-
-      &:last-child {
-        margin-left: 8px;
-      }
     }
   }
 

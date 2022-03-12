@@ -22,6 +22,7 @@ export const Container = styled.label`
   }
 
   input {
+    width: 100%;
     padding: 0 16px;
     background-color: ${({ theme }) => theme.backgroundSecondary};
     border: 2px solid ${({ theme }) => theme.background};

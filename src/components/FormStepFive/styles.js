@@ -20,13 +20,7 @@ export const Form = styled.form`
     display: flex;
     margin-bottom: 8px;
 
-    label:first-child,
-    div:first-child {
-      margin-right: 4px;
-    }
-
-    label:last-child,
-    div:last-child {
+    label + label {
       margin-left: 4px;
     }
 

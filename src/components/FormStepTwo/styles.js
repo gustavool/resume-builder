@@ -32,7 +32,7 @@ export const Form = styled.form`
       width: 50%;
 
       &:last-child {
-        margin-left: 8px;
+        margin-left: 4px;
       }
     }
   }

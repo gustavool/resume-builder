@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { breakpoints } from '../../styles/breakpoints';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -25,18 +24,16 @@ export const Form = styled.form`
       width: 50%;
     }
 
-    @media (min-width: ${breakpoints.laptop}px) {
-      label:first-child {
-        margin-right: 2px;
-      }
+    label:first-child {
+      margin-right: 2px;
+    }
 
-      label:last-child {
-        margin-left: 2px;
-      }
+    label:last-child {
+      margin-left: 2px;
+    }
 
-      & > label + div {
-        margin-left: 2px;
-      }
+    & > label + div {
+      margin-left: 2px;
     }
   }
 

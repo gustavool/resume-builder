@@ -29,6 +29,7 @@ export const Box = styled.div`
     align-self: flex-start;
     margin-left: 8px;
     width: 50%;
+    /* height: 100%; */
     height: 450px;
   }
 
@@ -41,19 +42,13 @@ export const Box = styled.div`
 
     form {
       align-self: center;
-      margin: 16px 0 0 0;
+      margin: 16px 0 36px 0;
       width: 100%;
       height: 100%;
-    }
 
-    button {
-      margin-bottom: 16px;
-    }
-  }
-
-  @media (max-width: ${breakpoints.tablet}px) {
-    button {
-      margin-top: 32px;
+      button {
+        margin-top: 16px;
+      }
     }
   }
 `;

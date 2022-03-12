@@ -10,6 +10,7 @@ export const Container = styled.label`
   text-transform: capitalize;
 
   input {
+    width: 100%;
     padding: 0 16px;
     border: 2px solid ${({ theme }) => theme.background};
     background-color: ${({ theme }) => theme.backgroundSecondary};
