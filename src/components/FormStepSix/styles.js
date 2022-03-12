@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-import { breakpoints } from '../../styles/breakpoints';
-
 export const Form = styled.main`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,8 +17,8 @@ export const Form = styled.main`
     margin-bottom: 8px;
   }
 
-  a:last-child {
-    margin-top: 16px;
+  .generateButton {
+    margin: 16px 0 32px 0;
   }
 
   div {
@@ -36,33 +35,4 @@ export const Form = styled.main`
       margin-bottom: 16px;
     }
   }
-  /*
-  @media (max-width: ${breakpoints.mobile}px) {
-    div {
-      p {
-        font-size: 12px;
-        width: 50%;
-      }
-
-      section {
-        max-width: 100%;
-
-        div {
-          flex-direction: row;
-        }
-      }
-
-      section + section {
-        margin-top: 8px;
-      }
-
-      section:nth-child(even) {
-        margin-left: 0px;
-      }
-
-      section:last-child {
-        margin-bottom: 16px;
-      }
-    }
-  } */
 `;

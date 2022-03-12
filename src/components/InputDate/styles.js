@@ -8,6 +8,7 @@ export const Container = styled.label`
   text-transform: capitalize;
 
   input {
+    width: 100%;
     color: ${({ theme }) => theme.paragraph};
     background-color: ${({ theme }) => theme.backgroundSecondary};
     padding: 0 16px;
@@ -20,5 +21,9 @@ export const Container = styled.label`
       border-radius: 4px;
       border-color: ${({ theme }) => theme.color.primary400};
     }
+  }
+
+  span {
+    text-transform: none;
   }
 `;

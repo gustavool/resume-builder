@@ -1,8 +1,6 @@
-import * as S from './styles';
-
 export default function Certification(props) {
   return (
-    <S.Svg
+    <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='74.48 127.68 362.81 293.22'
       {...props}
@@ -711,6 +709,6 @@ export default function Certification(props) {
           fill: '#eec1bb',
         }}
       />
-    </S.Svg>
+    </svg>
   );
 }

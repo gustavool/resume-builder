@@ -1,8 +1,10 @@
-import * as S from './styles';
-
 export default function Check(props) {
   return (
-    <S.Svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500' {...props}>
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='55.54 108.9 333.38 308.38'
+      {...props}
+    >
       <path
         d='M75.55 217.49h149.24a17.64 17.64 0 0 1-17.38-16.42l-2.64-44.48H55.54l2.63 44.48a17.64 17.64 0 0 0 17.38 16.42Z'
         style={{
@@ -264,6 +266,6 @@ export default function Check(props) {
         }}
         d='m357.3 281.12 5.69-30.14 2.29 7.21-7.98 22.93z'
       />
-    </S.Svg>
+    </svg>
   );
 }

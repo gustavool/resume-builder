@@ -1,8 +1,6 @@
-import * as S from './styles';
-
 export default function Study(props) {
   return (
-    <S.Svg
+    <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='108.03 144.62 283.94 270.29'
       {...props}
@@ -683,6 +681,6 @@ export default function Study(props) {
           d='m309.06 151.26-103.82 99.8h106.51l22.04-75.07-24.73-24.73z'
         />
       </g>
-    </S.Svg>
+    </svg>
   );
 }

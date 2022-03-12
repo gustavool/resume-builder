@@ -28,10 +28,6 @@ export const Form = styled.form`
       width: 50%;
     }
 
-    .select {
-      width: 50%;
-    }
-
     & > div {
       width: 50%;
 

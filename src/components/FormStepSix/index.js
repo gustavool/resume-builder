@@ -42,7 +42,7 @@ export default function FormStepSix() {
 
         <CertificationCard stepData={stepFive} />
 
-        <GeneratePdfButton data={allStepsData} />
+        <GeneratePdfButton className='generateButton' data={allStepsData} />
       </div>
     </S.Form>
   );

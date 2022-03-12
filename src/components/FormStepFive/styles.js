@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
+  align-items: space-between;
   max-width: 500px;
 
   h3 {
@@ -41,6 +41,6 @@ export const Form = styled.form`
   }
 
   button {
-    margin-top: 8px;
+    margin-top: auto;
   }
 `;

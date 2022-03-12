@@ -33,23 +33,23 @@ export const stepTwoSchema = yup.object().shape({
 
 export const stepThreeSchema = yup.object().shape({
   occupation: yup.string().required('Occupation is required'),
-  startDate: yup.date().required('Start Date is required'),
-  endDate: yup.date().required('End Date is required'),
+  startDate: yup.string().required('Start Date is required'),
+  endDate: yup.string().required('End Date is required'),
   employer: yup.string().required('Employer is required'),
   activities: yup.string().required('Activities are required'),
 });
 
 export const stepFourSchema = yup.object().shape({
   name: yup.string().required('Name is required'),
-  startDate: yup.date().required('Start Date is required'),
-  endDate: yup.date().required('End Date is required'),
+  startDate: yup.string().required('Start Date is required'),
+  endDate: yup.string().required('End Date is required'),
   collegeSchool: yup.string().required('College or School is required'),
   activities: yup.string().required('Activities are required'),
 });
 
 export const stepFiveSchema = yup.object().shape({
   name: yup.string().required('Name is required'),
-  date: yup.date().required('Date is required'),
+  date: yup.string().required('Date is required'),
   linkUrl: yup.string('Must be a string'),
   description: yup.string().required('Description is required'),
 });
