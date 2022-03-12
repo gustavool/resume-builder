@@ -8,6 +8,7 @@ export const Container = styled.main`
   align-items: center;
   margin: 0 16px 16px 16px;
   flex-direction: column;
+  height: 100%;
 `;
 
 export const Box = styled.div`
@@ -44,6 +45,11 @@ export const Box = styled.div`
       align-self: center;
       margin: 16px 0 36px 0;
       width: 100%;
+    }
+  }
+
+  @media (max-width: 320px) {
+    form {
       height: 100%;
 
       button {

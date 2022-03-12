@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export default styled.section`
-  border: 4px solid ${({ theme }) => theme.color.primary400};
   background-color: ${({ theme }) => theme.backgroundSecondary};
   border-radius: 4px;
   padding: 8px;
 
   width: 100%;
-  height: 120px;
+  height: 100px;
 
   display: flex;
   flex-direction: column;
