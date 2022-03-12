@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
+export default styled.section`
   border: 4px solid ${({ theme }) => theme.color.primary400};
   background-color: ${({ theme }) => theme.backgroundSecondary};
   border-radius: 4px;

@@ -1,16 +1,16 @@
 import FormStepTwo from '../../components/FormStepTwo';
 import ProgressBar from '../../components/ProgressBar';
 import Address from '../../components/SVGs/Address';
-import * as S from './styles';
+import * as Page from '../../styles/templates/Page';
 
 export default function StepTwo() {
   return (
-    <S.Container>
+    <Page.Container>
       <ProgressBar stepOne stepTwo />
-      <S.Box>
+      <Page.Box>
         <Address height='300' width='300' />
         <FormStepTwo />
-      </S.Box>
-    </S.Container>
+      </Page.Box>
+    </Page.Container>
   );
 }

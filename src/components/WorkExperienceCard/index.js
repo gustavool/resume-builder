@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
+import ReviewCard from '../../styles/templates/ReviewCard';
 import EditButton from '../EditButton';
-import * as S from './styles';
 
 export default function WorkExperienceCard({ stepData }) {
   return (
-    <S.Container>
+    <ReviewCard>
       <h2>Work Experience</h2>
       <div>
         <p>
@@ -27,7 +27,7 @@ export default function WorkExperienceCard({ stepData }) {
         <strong>Activities:</strong> {stepData.activities}
       </p>
       <EditButton href='http://localhost:3000/StepThree' />
-    </S.Container>
+    </ReviewCard>
   );
 }
 

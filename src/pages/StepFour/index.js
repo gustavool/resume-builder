@@ -1,16 +1,16 @@
 import FormStepFour from '../../components/FormStepFour';
 import ProgressBar from '../../components/ProgressBar';
 import Study from '../../components/SVGs/Study';
-import * as S from './styles';
+import * as Page from '../../styles/templates/Page';
 
 export default function StepFour() {
   return (
-    <S.Container>
+    <Page.Container>
       <ProgressBar stepOne stepTwo stepThree stepFour />
-      <S.Box>
+      <Page.Box>
         <Study height='350' width='350' />
         <FormStepFour />
-      </S.Box>
-    </S.Container>
+      </Page.Box>
+    </Page.Container>
   );
 }

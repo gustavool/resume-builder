@@ -47,5 +47,14 @@ export const Box = styled.div`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
+    flex-direction: column;
+    svg {
+      display: none;
+    }
+    form {
+      align-self: center;
+      margin: 16px 0 0 0;
+      width: 100%;
+    }
   }
 `;

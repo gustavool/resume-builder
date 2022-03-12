@@ -1,16 +1,16 @@
 import FormStepFive from '../../components/FormStepFive';
 import ProgressBar from '../../components/ProgressBar';
 import Certification from '../../components/SVGs/Certification';
-import * as S from './styles';
+import * as Page from '../../styles/templates/Page';
 
 export default function StepFive() {
   return (
-    <S.Container>
+    <Page.Container>
       <ProgressBar stepOne stepTwo stepThree stepFour stepFive />
-      <S.Box>
+      <Page.Box>
         <Certification />
         <FormStepFive />
-      </S.Box>
-    </S.Container>
+      </Page.Box>
+    </Page.Container>
   );
 }

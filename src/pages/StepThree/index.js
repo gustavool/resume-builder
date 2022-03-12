@@ -1,15 +1,16 @@
 import FormStepThree from '../../components/FormStepThree';
 import ProgressBar from '../../components/ProgressBar';
 import Work from '../../components/SVGs/Work';
-import * as S from './styles';
+import * as Page from '../../styles/templates/Page';
+
 export default function StepThree() {
   return (
-    <S.Container>
+    <Page.Container>
       <ProgressBar stepOne stepTwo stepThree />
-      <S.Box>
+      <Page.Box>
         <Work height='50%' width='50%' />
         <FormStepThree />
-      </S.Box>
-    </S.Container>
+      </Page.Box>
+    </Page.Container>
   );
 }
