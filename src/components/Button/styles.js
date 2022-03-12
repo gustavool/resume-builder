@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  background-color: ${({ theme }) => theme.color.primary400};
+  background-color: ${({ theme }) => theme.primary400};
   width: 100%;
   min-height: 48px;
   border: none;
@@ -13,12 +13,12 @@ export const Container = styled.button`
   font-weight: bold;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.primary200};
+    background-color: ${({ theme }) => theme.primary200};
     color: ${({ theme }) => theme.paragraph};
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.color.primary200};
+    background-color: ${({ theme }) => theme.primary200};
     cursor: default;
 
     &:hover {

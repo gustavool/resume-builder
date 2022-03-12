@@ -21,8 +21,8 @@
 //   } */
 
 //   .react-select__control--is-focused {
-//     border: 2px solid ${({ theme }) => theme.color.primary400};
-//     box-shadow: ${({ theme }) => theme.color.primary400};
+//     border: 2px solid ${({ theme }) => theme.primary400};
+//     box-shadow: ${({ theme }) => theme.primary400};
 //   }
 
 //   .react-select__control:hover {
@@ -30,8 +30,8 @@
 //   }
 
 //   .react-select__control--menu-is-open:hover {
-//     border: 2px solid ${({ theme }) => theme.color.primary400};
-//     box-shadow: ${({ theme }) => theme.color.primary400};
+//     border: 2px solid ${({ theme }) => theme.primary400};
+//     box-shadow: ${({ theme }) => theme.primary400};
 //   }
 
 //   .react-select__indicator-separator {
@@ -39,15 +39,15 @@
 //   }
 
 //   .react-select__indicator svg {
-//     fill: ${({ theme }) => theme.color.primary400};
+//     fill: ${({ theme }) => theme.primary400};
 //   }
 
 //   .react-select__option:hover {
-//     background-color: ${({ theme }) => theme.color.primary200};
+//     background-color: ${({ theme }) => theme.primary200};
 //   }
 
 //   .react-select__option--is-selected {
-//     background-color: ${({ theme }) => theme.color.primary200};
+//     background-color: ${({ theme }) => theme.primary200};
 //   }
 
 //   .react-select__value-container,

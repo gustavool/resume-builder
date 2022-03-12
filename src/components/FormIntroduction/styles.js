@@ -13,6 +13,9 @@ export const Form = styled.form`
 
   ul {
     margin: 16px 0;
+    background-color: ${({ theme }) => theme.backgroundSecondary};
+    border-radius: 4px;
+    padding: 8px;
   }
 
   button:last-child {

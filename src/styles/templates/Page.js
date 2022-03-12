@@ -22,7 +22,7 @@ export const Box = styled.div`
     margin-right: 8px;
     width: 50%;
     height: 100%;
-    max-height: 450px;
+    max-height: 480px;
     align-self: flex-start;
   }
 
@@ -31,7 +31,7 @@ export const Box = styled.div`
     margin-left: 8px;
     width: 50%;
     /* height: 100%; */
-    height: 450px;
+    height: 480px;
   }
 
   @media (max-width: ${breakpoints.mobile}px) {

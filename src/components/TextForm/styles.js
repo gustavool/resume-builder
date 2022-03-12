@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.p`
-  color: ${({ theme }) => theme.color.paragraph};
+  color: ${({ theme }) => theme.paragraph};
   width: 100%;
   font-size: 16px;
   background-color: ${({ theme }) => theme.backgroundSecondary};
@@ -9,6 +9,6 @@ export const Container = styled.p`
   border-radius: 4px;
 
   strong {
-    color: ${({ theme }) => theme.color.primary400};
+    color: ${({ theme }) => theme.primary400};
   }
 `;

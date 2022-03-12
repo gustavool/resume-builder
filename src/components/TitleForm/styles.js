@@ -13,7 +13,7 @@ export const Container = styled.h3`
     position: absolute;
     width: 80px;
     height: 4px;
-    background: ${({ theme }) => theme.color.primary400};
+    background: ${({ theme }) => theme.primary400};
     border-radius: 4px;
     left: 0;
     bottom: 0;

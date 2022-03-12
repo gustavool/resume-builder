@@ -15,7 +15,7 @@ export default function FormIntroduction() {
 
   return (
     <S.Form>
-      <TitleForm>Create your resume now!</TitleForm>
+      <TitleForm>Your resume now!</TitleForm>
       <TextForm>
         With <strong>Resume Builder</strong> is possible to build your resume in
         <strong> six steps</strong>. In each step you add your main information.

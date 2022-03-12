@@ -17,7 +17,7 @@ export const Container = styled.label`
       font-size: 12px;
       text-transform: none;
       margin-left: 4px;
-      color: ${({ theme }) => theme.color.primary400};
+      color: ${({ theme }) => theme.primary400};
     }
   }
 
@@ -32,7 +32,7 @@ export const Container = styled.label`
 
     &:focus {
       border-radius: 4px;
-      border-color: ${({ theme }) => theme.color.primary400};
+      border-color: ${({ theme }) => theme.primary400};
     }
   }
 

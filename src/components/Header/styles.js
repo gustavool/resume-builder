@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { breakpoints } from '../../styles/breakpoints';
 
 export const Container = styled.header`
-  background-color: ${({ theme }) => theme.color.primary400};
+  background-color: ${({ theme }) => theme.primary400};
   width: 100%;
 
   height: 72px;

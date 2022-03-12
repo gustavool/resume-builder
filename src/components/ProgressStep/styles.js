@@ -10,7 +10,7 @@ export const Container = styled.div`
   #firstBar {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    border-left: 2px solid ${({ theme }) => theme.color.paragraph};
+    border-left: 2px solid ${({ theme }) => theme.paragraph};
 
     div {
       border-top-left-radius: 2px;
@@ -21,7 +21,7 @@ export const Container = styled.div`
   #lastBar {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-right: 2px solid ${({ theme }) => theme.color.paragraph};
+    border-right: 2px solid ${({ theme }) => theme.paragraph};
 
     div {
       border-top-right-radius: 2px;
@@ -37,13 +37,13 @@ export const Container = styled.div`
     div div {
       height: 8px;
       width: 100%;
-      background-color: ${({ theme }) => theme.color.primary400};
+      background-color: ${({ theme }) => theme.primary400};
     }
 
     small {
       text-transform: none;
 
-      color: ${({ theme }) => theme.color.primary400};
+      color: ${({ theme }) => theme.primary400};
     }
   }
 
@@ -58,9 +58,9 @@ export const Container = styled.div`
 export const Bar = styled.div`
   width: 100%;
   height: 12px;
-  background-color: ${({ theme }) => theme.color.primary200};
-  border-top: 2px solid ${({ theme }) => theme.color.paragraph};
-  border-bottom: 2px solid ${({ theme }) => theme.color.paragraph};
+  background-color: ${({ theme }) => theme.primary200};
+  border-top: 2px solid ${({ theme }) => theme.paragraph};
+  border-bottom: 2px solid ${({ theme }) => theme.paragraph};
 
   display: flex;
   align-items: center;

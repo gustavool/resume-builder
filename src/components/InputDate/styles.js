@@ -20,7 +20,7 @@ export const Container = styled.label`
 
     &:focus {
       border-radius: 4px;
-      border-color: ${({ theme }) => theme.color.primary400};
+      border-color: ${({ theme }) => theme.primary400};
     }
   }
 

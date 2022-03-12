@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  border: 4px solid ${({ theme }) => theme.color.primary400};
+  border: 4px solid ${({ theme }) => theme.primary400};
   background-color: ${({ theme }) => theme.backgroundSecondary};
   border-radius: 4px;
   padding: 8px;
@@ -28,7 +28,7 @@ export const Container = styled.section`
     color: ${({ theme }) => theme.head};
     font-size: 16px;
     margin-bottom: 8px;
-    border-bottom: 2px solid ${({ theme }) => theme.color.primary400};
+    border-bottom: 2px solid ${({ theme }) => theme.primary400};
   }
 
   p {

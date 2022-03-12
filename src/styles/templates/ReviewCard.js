@@ -28,7 +28,7 @@ export default styled.section`
     color: ${({ theme }) => theme.head};
     font-size: 16px;
     margin-bottom: 8px;
-    border-bottom: 2px solid ${({ theme }) => theme.color.primary400};
+    border-bottom: 2px solid ${({ theme }) => theme.primary400};
   }
 
   p {

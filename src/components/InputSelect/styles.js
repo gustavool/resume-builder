@@ -19,7 +19,7 @@ export const SelectBox = styled.div`
   height: 48px;
 
   &:focus-within {
-    border-color: ${({ theme }) => theme.color.primary400};
+    border-color: ${({ theme }) => theme.primary400};
   }
 
   select {
