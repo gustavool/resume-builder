@@ -36,7 +36,7 @@ export default function FormStepFour() {
     <S.Form>
       <BackButton href='http://localhost:3000/StepThree' />
 
-      <TitleForm>Graduations</TitleForm>
+      <TitleForm>Graduation</TitleForm>
 
       <div className='doubleFields'>
         <InputText

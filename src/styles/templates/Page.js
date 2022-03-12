@@ -6,7 +6,7 @@ export const Container = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 16px 0 16px;
+  margin: 0 16px 16px 16px;
   flex-direction: column;
 `;
 
@@ -43,6 +43,11 @@ export const Box = styled.div`
       align-self: center;
       margin: 16px 0 0 0;
       width: 100%;
+      height: 100%;
+    }
+
+    button {
+      margin-bottom: 16px;
     }
   }
 

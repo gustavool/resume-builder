@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { changeStepOne } from '../../store/actions/stepOneActions';
 import { stepOneSchema } from '../../yup/schemas';
+import BackButton from '../BackButton';
 import Button from '../Button';
 import InputNumber from '../InputNumber';
 import InputSelect from '../InputSelect';
@@ -32,6 +33,8 @@ export default function FormStepOne() {
 
   return (
     <S.Form>
+      <BackButton href='http://localhost:3000/' />
+
       <TitleForm>Personal Data</TitleForm>
 
       <div className='doubleFields'>

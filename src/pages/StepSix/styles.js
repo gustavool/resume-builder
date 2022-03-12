@@ -34,10 +34,6 @@ export const Box = styled.div`
 
   @media (max-width: ${breakpoints.mobile}px) {
     flex-direction: column;
-    svg {
-      align-self: center;
-      width: 50%;
-    }
 
     form {
       align-self: center;
@@ -48,7 +44,8 @@ export const Box = styled.div`
 
   @media (max-width: ${breakpoints.tablet}px) {
     flex-direction: column;
-    svg {
+
+    & > svg {
       display: none;
     }
     form {

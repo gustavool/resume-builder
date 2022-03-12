@@ -16,6 +16,7 @@ import InputText from '../InputText';
 import StateSelect from '../StateSelect';
 import TitleForm from '../TitleForm';
 import * as S from './styles';
+
 export default function FormStepTwo() {
   const [citiesOptions, setCitiesOptions] = useState([]);
   const [countriesOptions, setCountriesOptions] = useState([]);

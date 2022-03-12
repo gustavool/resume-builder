@@ -6,8 +6,14 @@ export const Form = styled.form`
   flex-direction: column;
   width: 100%;
   align-items: space-between;
+
   h3 {
     margin-bottom: 16px;
+  }
+
+  a:first-child {
+    align-self: flex-start;
+    margin-bottom: 8px;
   }
 
   .doubleFields {

@@ -17,7 +17,7 @@ export const Container = styled.label`
       font-size: 12px;
       text-transform: none;
       margin-left: 4px;
-      color: ${({ theme }) => theme.color.primary200};
+      color: ${({ theme }) => theme.color.primary400};
     }
   }
 

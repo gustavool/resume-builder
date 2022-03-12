@@ -26,11 +26,11 @@ export default function ProgressBar({
         isInProgress={stepThree ? true : false}
       ></ProgressStep>
       <ProgressStep
-        stepName='Graduations'
+        stepName='Graduation'
         isInProgress={stepFour ? true : false}
       ></ProgressStep>
       <ProgressStep
-        stepName='Certifications'
+        stepName='Certification'
         isInProgress={stepFive ? true : false}
       ></ProgressStep>
       <ProgressStep
