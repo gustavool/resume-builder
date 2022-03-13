@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import Logo from '../../components/SVGs/Logo';
-import GitHubIcon from '../SVGs/GithubIcon';
+import GitHubIcon from '../SVGs/GitHubIcon';
 import ToggleThemeButton from '../ToggleThemeButton';
 import * as S from './styles';
 export default function Header() {
