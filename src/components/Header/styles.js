@@ -19,9 +19,12 @@ export const Container = styled.header`
     margin: 0 16px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
-    a {
-      align-self: center;
+    a:first-child svg {
+      width: 32px;
+      height: 32px;
+      fill: ${({ theme }) => theme.backgroundSecondary};
     }
   }
 `;

@@ -11,16 +11,16 @@ import { light } from '../styles/theme';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={light}>
-      <GlobalStyles />
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={light}>
+          <GlobalStyles />
           <Header />
           <Component {...pageProps} />
           <Footer />
-        </PersistGate>
-      </Provider>
-    </ThemeProvider>
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   );
 }
 

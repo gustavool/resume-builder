@@ -33,7 +33,7 @@ export default function FormStepOne() {
 
   return (
     <S.Form>
-      <BackButton href='http://localhost:3000/' />
+      <BackButton href='http://localhost:3000/Home' />
 
       <TitleForm>Personal Data</TitleForm>
 

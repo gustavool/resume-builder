@@ -7,6 +7,7 @@ import stepFourReducer from './stepFourReducers';
 import stepOneReducer from './stepOneReducers';
 import stepThreeReducer from './stepThreeReducers';
 import stepTwoReducer from './stepTwoReducers';
+import themeReducer from './themeReducers';
 
 const rootReducer = combineReducers({
   stepOneReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   stepFiveReducer,
   countriesAndStatesReducer,
   citiesReducer,
+  themeReducer,
 });
 
 export default rootReducer;
