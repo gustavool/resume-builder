@@ -1,5 +1,5 @@
 {
-  "name": "next-react-hook-form-redux",
+  "name": "resume-builder",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-import ReviewCard from '../../styles/templates/ReviewCard';
+import StepCard from '../../styles/templates/StepCard';
 import EditButton from '../EditButton';
 
 export default function PersonalDataCard({ stepData }) {
   return (
-    <ReviewCard>
+    <StepCard>
       <h2>Personal</h2>
       <div>
         <p>
@@ -27,7 +27,7 @@ export default function PersonalDataCard({ stepData }) {
         <strong>Email:</strong> {stepData.email}
       </p>
       <EditButton href='/StepOne' />
-    </ReviewCard>
+    </StepCard>
   );
 }
 

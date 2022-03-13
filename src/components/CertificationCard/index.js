@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-import ReviewCard from '../../styles/templates/ReviewCard';
+import StepCard from '../../styles/templates/StepCard';
 import EditButton from '../EditButton';
 
 export default function CertificationCard({ stepData }) {
   return (
-    <ReviewCard>
+    <StepCard>
       <h2>Certification</h2>
       <div>
         <p>
@@ -23,7 +23,7 @@ export default function CertificationCard({ stepData }) {
       </p>
 
       <EditButton href='/StepFive' />
-    </ReviewCard>
+    </StepCard>
   );
 }
 

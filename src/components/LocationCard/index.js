@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-import ReviewCard from '../../styles/templates/ReviewCard';
+import StepCard from '../../styles/templates/StepCard';
 import EditButton from '../EditButton';
 
 export default function LocationCard({ stepData }) {
   return (
-    <ReviewCard>
+    <StepCard>
       <h2>Location</h2>
       <div>
         <p>
@@ -27,7 +27,7 @@ export default function LocationCard({ stepData }) {
         <strong>City:</strong> {stepData.city}
       </p>
       <EditButton href='/StepTwo' />
-    </ReviewCard>
+    </StepCard>
   );
 }
 
