@@ -31,7 +31,7 @@ export const Container = styled.div`
 
   small {
     font-weight: bold;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.paragraph};
   }
 
   .stepProgress {
