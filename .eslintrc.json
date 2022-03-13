@@ -28,7 +28,8 @@
         "singleQuote": true,
         "trailingComma": "es5",
         "arrowParens": "always",
-        "jsxSingleQuote": true
+        "jsxSingleQuote": true,
+        "endOfLine": "auto"
       }
     ],
     // "prettier/prettier": "error",
