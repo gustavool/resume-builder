@@ -10,7 +10,7 @@ export const Container = styled.div`
   #firstBar {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    border-left: 0;
+    border-left: 2px solid ${({ theme }) => theme.primary400};
 
     div {
       border-top-left-radius: 2px;
@@ -21,7 +21,7 @@ export const Container = styled.div`
   #lastBar {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-right: 0;
+    border-right: 2px solid ${({ theme }) => theme.primary400};
 
     div {
       border-top-right-radius: 2px;
