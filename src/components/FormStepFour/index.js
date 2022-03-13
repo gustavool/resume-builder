@@ -38,7 +38,7 @@ export default function FormStepFour() {
 
       <TitleForm>Education</TitleForm>
 
-      <div className='doubleFields'>
+      <div className='double-fields'>
         <InputText
           name='name'
           placeholder='course name'
@@ -63,7 +63,7 @@ export default function FormStepFour() {
         </InputText>
       </div>
 
-      <div className='doubleFields'>
+      <div className='double-fields'>
         <InputDate
           name='startDate'
           onChange={handleInputChange}
@@ -87,7 +87,6 @@ export default function FormStepFour() {
       </div>
 
       <InputText
-        className='oneField'
         name='activities'
         placeholder='course activities'
         maxLength='200'

@@ -37,7 +37,7 @@ export default function FormStepFive() {
 
       <TitleForm>Certification</TitleForm>
 
-      <div className='doubleFields'>
+      <div className='double-fields'>
         <InputText
           name='name'
           placeholder='name'
@@ -63,7 +63,7 @@ export default function FormStepFive() {
       </div>
 
       <InputText
-        className='oneField'
+        className='one-field'
         name='linkUrl'
         placeholder='link/url'
         onBlur={handleInputChange}
@@ -77,7 +77,6 @@ export default function FormStepFive() {
       </InputText>
 
       <InputText
-        className='oneField'
         name='description'
         placeholder='description'
         onBlur={handleInputChange}

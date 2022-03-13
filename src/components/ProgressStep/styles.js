@@ -10,7 +10,7 @@ export const Container = styled.div`
   #firstBar {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    border-left: 2px solid ${({ theme }) => theme.border};
+    border-left: 2px solid ${({ theme }) => theme.primary400};
 
     div {
       border-top-left-radius: 2px;
@@ -21,7 +21,7 @@ export const Container = styled.div`
   #lastBar {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-right: 2px solid ${({ theme }) => theme.border};
+    border-right: 2px solid ${({ theme }) => theme.primary400};
 
     div {
       border-top-right-radius: 2px;
@@ -60,8 +60,8 @@ export const Bar = styled.div`
   width: 100%;
   height: 12px;
   background-color: ${({ theme }) => theme.primary200};
-  border-top: 2px solid ${({ theme }) => theme.border};
-  border-bottom: 2px solid ${({ theme }) => theme.border};
+  border-top: 2px solid ${({ theme }) => theme.primary400};
+  border-bottom: 2px solid ${({ theme }) => theme.primary400};
 
   display: flex;
   align-items: center;

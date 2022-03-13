@@ -37,7 +37,7 @@ export default function FormStepOne() {
 
       <TitleForm>Personal Data</TitleForm>
 
-      <div className='doubleFields'>
+      <div className='double-fields'>
         <InputText
           name='firstName'
           placeholder='first name'
@@ -63,7 +63,7 @@ export default function FormStepOne() {
         </InputText>
       </div>
 
-      <div className='doubleFields'>
+      <div className='double-fields'>
         <InputNumber
           name='age'
           placeholder='age'
@@ -89,7 +89,6 @@ export default function FormStepOne() {
       </div>
 
       <InputText
-        className='oneField'
         name='email'
         placeholder='email'
         maxLength='50'

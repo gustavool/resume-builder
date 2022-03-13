@@ -11,7 +11,7 @@ export const Form = styled.form`
     margin-bottom: 16px;
   }
 
-  .doubleFields {
+  .double-fields {
     display: flex;
     margin-bottom: 8px;
 
@@ -22,10 +22,6 @@ export const Form = styled.form`
     label {
       width: 50%;
     }
-  }
-
-  .oneField {
-    margin-bottom: 8px;
   }
 
   button {

@@ -10,7 +10,7 @@ export const Form = styled.form`
     margin-bottom: 16px;
   }
 
-  .doubleFields {
+  .double-fields {
     display: flex;
     margin-bottom: 8px;
 
@@ -30,10 +30,6 @@ export const Form = styled.form`
     & > label + div {
       margin-left: 2px;
     }
-  }
-
-  .oneField {
-    margin-bottom: 8px;
   }
 
   button {

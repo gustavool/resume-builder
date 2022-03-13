@@ -125,7 +125,7 @@ export default function FormStepTwo() {
 
       <TitleForm>Location</TitleForm>
 
-      <div className='doubleFields'>
+      <div className='double-fields'>
         <InputNumber
           name='number'
           placeholder='000000'
@@ -146,7 +146,6 @@ export default function FormStepTwo() {
       </div>
 
       <InputText
-        className='oneField'
         name='address'
         placeholder='av...'
         maxLength='80'
@@ -158,7 +157,7 @@ export default function FormStepTwo() {
         Address
       </InputText>
 
-      <div className='doubleFields'>
+      <div className='double-fields after-one-field'>
         <StateSelect
           options={statesOptions}
           register={register}

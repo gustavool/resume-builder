@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.label`
   width: 100%;
   display: flex;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.paragraph};
   flex-direction: column;
   font-weight: bold;
   text-transform: capitalize;

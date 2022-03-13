@@ -8,8 +8,12 @@ export const Container = styled.button`
     opacity: 0.7;
     a {
       cursor: default;
-      color: ${({ theme }) => theme.paragraph};
+      color: ${({ theme }) => theme.background};
       background-color: ${({ theme }) => theme.primary200};
+
+      &:hover {
+        color: ${({ theme }) => theme.background};
+      }
     }
   }
 

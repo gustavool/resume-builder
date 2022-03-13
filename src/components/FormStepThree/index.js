@@ -38,7 +38,7 @@ export default function FormStepThree() {
 
       <TitleForm>Work Experience</TitleForm>
 
-      <div className='doubleFields'>
+      <div className='double-fields'>
         <InputText
           name='occupation'
           placeholder='occupation'
@@ -64,7 +64,7 @@ export default function FormStepThree() {
         </InputText>
       </div>
 
-      <div className='doubleFields'>
+      <div className='double-fields'>
         <InputDate
           name='startDate'
           defaultValue={stepThree.startDate}
@@ -89,7 +89,6 @@ export default function FormStepThree() {
       </div>
 
       <InputText
-        className='oneField'
         name='activities'
         placeholder='occupation activities'
         maxLength='200'
