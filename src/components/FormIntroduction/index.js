@@ -19,7 +19,7 @@ export default function FormIntroduction() {
       <TextForm>
         With <strong>Resume Builder</strong> is possible to build your resume in
         <strong> six steps</strong>. In each step, you add your main
-        information. After you finish the steps you can download it.
+        information. After you finish the steps you can download your resume.
       </TextForm>
 
       <ListItem list={stepList} />
