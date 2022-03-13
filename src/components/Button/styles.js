@@ -3,6 +3,16 @@ import styled from 'styled-components';
 export const Container = styled.button`
   border: none;
   border-radius: 4px;
+
+  &:disabled {
+    opacity: 0.7;
+    a {
+      cursor: default;
+      color: ${({ theme }) => theme.paragraph};
+      background-color: ${({ theme }) => theme.primary200};
+    }
+  }
+
   a {
     height: 48px;
     font-size: 16px;

@@ -12,7 +12,6 @@ export default function InputDate({
   ...rest
 }) {
   const selectedTheme = useSelector((state) => state.themeReducer.theme);
-  console.log('selectedTheme', selectedTheme);
 
   return (
     <S.Container>
