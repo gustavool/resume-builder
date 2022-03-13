@@ -36,9 +36,10 @@ export default styled.section`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: ${({ theme }) => theme.text};
 
     strong {
-      color: ${({ theme }) => theme.paragraph};
+      color: ${({ theme }) => theme.text};
       font-weight: bold;
     }
   }

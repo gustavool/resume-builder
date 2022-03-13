@@ -6,7 +6,7 @@ export const Container = styled.footer`
   height: 40px;
   margin-top: auto;
 
-  color: ${({ theme }) => theme.paragraph};
+  color: ${({ theme }) => theme.background};
   font-size: 12px;
 
   display: flex;
@@ -16,7 +16,7 @@ export const Container = styled.footer`
   a {
     text-decoration: none;
     margin: 0 4px;
-    color: ${({ theme }) => theme.paragraph};
+    color: ${({ theme }) => theme.background};
     font-weight: bold;
   }
 `;

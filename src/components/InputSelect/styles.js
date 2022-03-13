@@ -30,9 +30,10 @@ export const SelectBox = styled.div`
     border: 2px solid transparent;
     background-color: ${({ theme }) => theme.backgroundSecondary};
     border-radius: 2px;
+    color: ${({ theme }) => theme.text};
 
     option {
-      color: ${({ theme }) => theme.paragraph};
+      color: ${({ theme }) => theme.text};
     }
   }
 `;

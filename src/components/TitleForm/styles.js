@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.h3`
-  color: ${({ theme }) => theme.paragraph};
+  color: ${({ theme }) => theme.head};
   font-size: 24px;
   display: block;
   position: relative;

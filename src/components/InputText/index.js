@@ -17,7 +17,7 @@ export default function InputText({
       <div>
         {children} {isOptional && <small>optional</small>}
       </div>
-      <input
+      <S.Input
         name={name}
         type='text'
         maxLength={maxLength}

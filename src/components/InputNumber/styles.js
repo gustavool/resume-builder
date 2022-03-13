@@ -3,9 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.label`
   width: 100%;
   display: flex;
+  color: ${({ theme }) => theme.text};
   flex-direction: column;
-
-  color: ${({ theme }) => theme.paragraph};
   font-weight: bold;
   text-transform: capitalize;
 
@@ -17,6 +16,7 @@ export const Container = styled.label`
     border-radius: 4px;
     height: 48px;
     outline: none;
+    color: ${({ theme }) => theme.text};
 
     &:focus {
       border-radius: 4px;

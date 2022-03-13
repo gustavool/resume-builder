@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import TextError from '../TextError';
 import * as S from './styles';
@@ -10,10 +11,19 @@ export default function InputDate({
   error,
   ...rest
 }) {
+  const selectedTheme = useSelector((state) => state.themeReducer.theme);
+  console.log('selectedTheme', selectedTheme);
+
   return (
     <S.Container>
       {children}
-      <input name={name} type='date' {...register(name)} {...rest} />{' '}
+      <S.Input
+        name={name}
+        type='date'
+        selectedTheme={selectedTheme}
+        {...register(name)}
+        {...rest}
+      />
       {error && <TextError>{error.message}</TextError>}
     </S.Container>
   );
