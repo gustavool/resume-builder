@@ -23,5 +23,5 @@ export const ThemeOption = styled.div`
   transform: translateX(
     ${(props) => (props.selectedTheme === 'light' ? '0px' : '24px')}
   );
-  transition: transform 0.5s ease;
+  transition: transform 0.25s ease;
 `;

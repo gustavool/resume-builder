@@ -19,11 +19,6 @@ export default styled.section`
     }
   }
 
-  a {
-    font-size: 12px;
-    align-self: flex-end;
-  }
-
   h2 {
     color: ${({ theme }) => theme.head};
     font-size: 16px;
@@ -42,9 +37,5 @@ export default styled.section`
       color: ${({ theme }) => theme.text};
       font-weight: bold;
     }
-  }
-
-  a {
-    margin: 0;
   }
 `;

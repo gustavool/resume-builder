@@ -11,11 +11,6 @@ export const Form = styled.form`
     margin-bottom: 16px;
   }
 
-  a:first-child {
-    align-self: flex-start;
-    margin-bottom: 8px;
-  }
-
   .doubleFields {
     display: flex;
     margin-bottom: 8px;

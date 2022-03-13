@@ -22,7 +22,7 @@ export default function CertificationCard({ stepData }) {
         <strong>Description:</strong> {stepData.description}
       </p>
 
-      <EditButton href='http://localhost:3000/StepFive' />
+      <EditButton href='/StepFive' />
     </ReviewCard>
   );
 }

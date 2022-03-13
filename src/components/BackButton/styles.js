@@ -1,18 +1,26 @@
 import styled from 'styled-components';
 
-export const Container = styled.a`
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.primary400};
-  font-size: 16px;
+export const Container = styled.div`
   font-weight: bold;
-  text-decoration: none;
 
-  &:hover {
-    color: ${({ theme }) => theme.paragraph};
+  a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: ${({ theme }) => theme.primary400};
 
     svg {
-      fill: ${({ theme }) => theme.paragraph};
+      height: 18px;
+      width: 18px;
+      margin-right: 2px;
+    }
+
+    &:hover {
+      color: ${({ theme }) => theme.paragraph};
+
+      svg {
+        fill: ${({ theme }) => theme.paragraph};
+      }
     }
   }
 `;

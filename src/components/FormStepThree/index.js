@@ -34,7 +34,7 @@ export default function FormStepThree() {
 
   return (
     <S.Form>
-      <BackButton href='http://localhost:3000/StepTwo' />
+      <BackButton id='back-button' href='/StepTwo' />
 
       <TitleForm>Work Experience</TitleForm>
 
@@ -101,7 +101,7 @@ export default function FormStepThree() {
         Activities
       </InputText>
 
-      <Button href='http://localhost:3000/StepFour' disabled={!isValid}>
+      <Button href='/StepFour' disabled={!isValid}>
         Next
       </Button>
     </S.Form>

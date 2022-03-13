@@ -30,8 +30,12 @@ export const Box = styled.div`
     align-self: flex-start;
     margin-left: 8px;
     width: 50%;
-    /* height: 100%; */
     height: 480px;
+  }
+
+  #back-button {
+    align-self: flex-start;
+    margin-bottom: 8px;
   }
 
   @media (max-width: ${breakpoints.mobile}px) {
@@ -45,6 +49,11 @@ export const Box = styled.div`
       align-self: center;
       margin: 16px 0 36px 0;
       width: 100%;
+      height: 100%;
+
+      button {
+        margin-top: 32px;
+      }
     }
   }
 

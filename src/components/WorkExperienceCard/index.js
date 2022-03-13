@@ -26,7 +26,7 @@ export default function WorkExperienceCard({ stepData }) {
       <p>
         <strong>Activities:</strong> {stepData.activities}
       </p>
-      <EditButton href='http://localhost:3000/StepThree' />
+      <EditButton href='/StepThree' />
     </ReviewCard>
   );
 }

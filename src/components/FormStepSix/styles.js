@@ -11,12 +11,12 @@ export const Form = styled.main`
     margin-bottom: 16px;
   }
 
-  a:first-child {
+  #back-button {
     align-self: flex-start;
     margin-bottom: 8px;
   }
 
-  .generateButton {
+  .generate-button {
     margin: 16px 0 32px 0;
   }
 

@@ -33,7 +33,7 @@ export default function FormStepOne() {
 
   return (
     <S.Form>
-      <BackButton href='http://localhost:3000/Home' />
+      <BackButton id='back-button' href='/Home' />
 
       <TitleForm>Personal Data</TitleForm>
 
@@ -101,7 +101,7 @@ export default function FormStepOne() {
         Email
       </InputText>
 
-      <Button href='http://localhost:3000/StepTwo' disabled={!isValid}>
+      <Button href='/StepTwo' disabled={!isValid}>
         Next
       </Button>
     </S.Form>

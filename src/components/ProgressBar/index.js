@@ -26,7 +26,7 @@ export default function ProgressBar({
         isInProgress={stepThree ? true : false}
       ></ProgressStep>
       <ProgressStep
-        stepName='Graduation'
+        stepName='Education'
         isInProgress={stepFour ? true : false}
       ></ProgressStep>
       <ProgressStep

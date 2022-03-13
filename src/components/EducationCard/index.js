@@ -26,7 +26,7 @@ export default function EducationCard({ stepData }) {
       <p>
         <strong>Activities:</strong> {stepData.activities}
       </p>
-      <EditButton href='http://localhost:3000/StepFour' />
+      <EditButton href='/StepFour' />
     </ReviewCard>
   );
 }

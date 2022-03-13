@@ -121,7 +121,7 @@ export default function FormStepTwo() {
 
   return (
     <S.Form>
-      <BackButton href='http://localhost:3000/StepOne' />
+      <BackButton id='back-button' href='/StepOne' />
 
       <TitleForm>Location</TitleForm>
 
@@ -172,10 +172,7 @@ export default function FormStepTwo() {
         />
       </div>
 
-      <Button
-        href='http://localhost:3000/StepThree'
-        disabled={!isValid || !isValidSelectedOptions}
-      >
+      <Button href='/StepThree' disabled={!isValid || !isValidSelectedOptions}>
         Next
       </Button>
     </S.Form>

@@ -8,7 +8,7 @@ export default function FormIntroduction() {
     'Personal',
     'Location',
     'Work',
-    'Graduation',
+    'Education',
     'Certification',
     'Download',
   ];
@@ -24,7 +24,7 @@ export default function FormIntroduction() {
 
       <ListItem list={stepList} />
 
-      <Button href='http://localhost:3000/StepOne'>Start</Button>
+      <Button href='/StepOne'>Start</Button>
     </S.Form>
   );
 }

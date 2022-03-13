@@ -34,9 +34,9 @@ export default function FormStepFour() {
 
   return (
     <S.Form>
-      <BackButton href='http://localhost:3000/StepThree' />
+      <BackButton id='back-button' href='/StepThree' />
 
-      <TitleForm>Graduation</TitleForm>
+      <TitleForm>Education</TitleForm>
 
       <div className='doubleFields'>
         <InputText
@@ -99,7 +99,7 @@ export default function FormStepFour() {
         Activities
       </InputText>
 
-      <Button href='http://localhost:3000/StepFive' disabled={!isValid}>
+      <Button href='/StepFive' disabled={!isValid}>
         Next
       </Button>
     </S.Form>

@@ -26,7 +26,7 @@ export default function LocationCard({ stepData }) {
       <p>
         <strong>City:</strong> {stepData.city}
       </p>
-      <EditButton href='http://localhost:3000/StepTwo' />
+      <EditButton href='/StepTwo' />
     </ReviewCard>
   );
 }

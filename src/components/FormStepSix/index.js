@@ -27,7 +27,7 @@ export default function FormStepSix() {
 
   return (
     <S.Form>
-      <BackButton href='http://localhost:3000/StepFive' />
+      <BackButton id='back-button' href='/StepFive' />
 
       <TitleForm>Review</TitleForm>
 
@@ -42,7 +42,7 @@ export default function FormStepSix() {
 
         <CertificationCard stepData={stepFive} />
 
-        <GeneratePdfButton className='generateButton' data={allStepsData} />
+        <GeneratePdfButton className='generate-button' data={allStepsData} />
       </div>
     </S.Form>
   );

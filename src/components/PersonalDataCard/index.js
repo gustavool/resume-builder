@@ -26,7 +26,7 @@ export default function PersonalDataCard({ stepData }) {
       <p>
         <strong>Email:</strong> {stepData.email}
       </p>
-      <EditButton href='http://localhost:3000/StepOne' />
+      <EditButton href='/StepOne' />
     </ReviewCard>
   );
 }

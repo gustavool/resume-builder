@@ -33,7 +33,7 @@ export default function FormStepFive() {
 
   return (
     <S.Form>
-      <BackButton href='http://localhost:3000/StepFour' />
+      <BackButton id='back-button' href='/StepFour' />
 
       <TitleForm>Certification</TitleForm>
 
@@ -89,7 +89,7 @@ export default function FormStepFive() {
         Description
       </InputText>
 
-      <Button href='http://localhost:3000/StepSix' disabled={!isValid}>
+      <Button href='/StepSix' disabled={!isValid}>
         Next
       </Button>
     </S.Form>
