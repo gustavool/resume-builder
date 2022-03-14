@@ -6,7 +6,7 @@ Resume Builder is a web app that generates a simple resume in pdf format after s
 
 Used api [https://countriesnow.space](https://countriesnow.space/) to get country, states and city data.
 
-#### To do list and new features
+#### To do
 
 - add a button to insert more than one work experience, education and certification
 - option to upload a picture
