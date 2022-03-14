@@ -26,5 +26,9 @@ export const Container = styled.header`
       height: 32px;
       fill: ${({ theme }) => theme.backgroundSecondary};
     }
+
+    a:nth-child(2) svg {
+      padding-top: 5px;
+    }
   }
 `;
