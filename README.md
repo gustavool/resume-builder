@@ -8,14 +8,15 @@ Used api [https://countriesnow.space](https://countriesnow.space/) to get countr
 
 ## Technologies used
 
-- Next.js
-- React
-- React-hook-form
-- Yup (validation library)
-- Redux
+- next
+- react
+- react-hook-form
+- yup (validation library)
+- redux
+- redux-thunk
 - Redux-persist
-- React-pdf
-- Styled components (style and theme)
+- react-pdf
+- styled-components (style and theme)
 
 <img src="readme/resume-home-page.jpg"><br>
 
