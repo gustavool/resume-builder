@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Resume Builder
 
-## Getting Started
+## Description
 
-First, run the development server:
+Resume Builder is a web app that generates a simple resume in pdf format after six steps.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Used api [https://countriesnow.space](https://countriesnow.space/) to get country, states and city data.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies used
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Next.js
+- React
+- React-hook-form
+- Yup (validation library)
+- Redux
+- Redux-persist
+- React-pdf
+- Styled components (style and theme)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<img src="readme/resume-home-page.jpg"><br>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Getting started
 
-## Learn More
+#### Clone this repository
 
-To learn more about Next.js, take a look at the following resources:
+`git clone https://github.com/gustavool/resume-builder.git`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Install dependencies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+inside the main folder execute: `yarn install`
 
-## Deploy on Vercel
+#### Run project
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`yarn dev`
