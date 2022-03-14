@@ -28,7 +28,9 @@ export const Container = styled.header`
     }
 
     a:nth-child(2) svg {
-      padding-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 `;
